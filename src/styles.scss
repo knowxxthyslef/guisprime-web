@@ -1,1 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* ESTILO BTONES */
+
+.btn-totalplay {
+    /* background-color: #8ac7d3; */
+    background-color: #42a6b8;
+    border: 1px solid #42a6b8;
+    border-radius: 8px !important;
+    font-size: 1.5rem;
+    color: #ffffff;
+    width: 100%;
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+    line-height: 1.5rem;
+    height: 38px;
+}
+
+.btn-totalplay:disabled {
+    background-color: #8ac7d3;
+    border: 1px solid #8ac7d3;
+    border-radius: 8px !important;
+    font-size: 1.5rem;
+    color: #ffffff !important;
+    width: 100%;
+    line-height: 1.5rem;
+    height: 38px;
+}
+
+.btn-totalplay:hover {
+    background-color: #8ac7d3!important;
+    border: 1px solid #8ac7d3!important;
+    color: #ffffff !important;
+}
+
+.btn-totalplay:active,
+.btn-totalplay:focus,
+.btn-totalplay:focus:active {
+    color: #ffffff !important;
+    outline-color: #8ac7d3!important;
+    box-shadow: none!important;
+}
+
+.btn-totalplay:disabled:active {
+    /* outline-color: none !important;
+    box-shadow: none !important; */
+}
+
+.btn-totalplay-secondary:active,
+.btn-totalplay-secondary:focus,
+.btn-totalplay-secondary:focus:active {
+    outline-color: #285ced !important;
+    opacity: 0.7;
+}
+
+.btn-totalplay-secondary {
+    background-color: #ffffff;
+    border: 2px solid #285ced;
+    border-radius: 2px !important;
+    font-size: 1rem;
+    color: #285ced;
+    width: 100%;
+    /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);*/
+}
+  
+  .btn-totalplay-secondary:hover {
+    color: #285ced !important;
+  }
+  
+  .btn-totalplay-secondary:disabled {
+    border: 1px solid #b1b3b3;
+    color: #b1b3b3 !important;
+  }
+  
+  .btn-totalplay-danger {
+    background-color: #ffffff;
+    border: 2px solid #f95a36 !important;
+    border-radius: 2px !important;
+    font-size: 1rem;
+    color: #f95a36;
+    width: 100%;
+  }
+  
+  .btn-totalplay-danger:hover {
+    background-color: #ffffff;
+    color: #f95a36 !important;
+  }
+  .btn-totalplay-danger:focus {
+    box-shadow: 0 0 0 0.25rem rgb(249 90 54 / 25%);
+  }
