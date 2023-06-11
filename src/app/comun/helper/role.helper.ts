@@ -1,0 +1,5 @@
+export const ROLE = {
+    ABOGADO: 'ABOGADO',
+    ADMINISTRADOR: 'ADMINISTRADOR',
+};
+

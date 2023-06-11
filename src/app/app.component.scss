@@ -1,0 +1,8 @@
+/* Se quita el footer de gob mx */
+::ng-deep .main-footer{
+    display: none!important;
+}
+
+::ng-deep .navbar-fixed-top{
+    top: .7px!important;
+}
