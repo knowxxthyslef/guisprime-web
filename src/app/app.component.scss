@@ -1,8 +1,41 @@
-/* Se quita el footer de gob mx */
+/* SE QUITA FOOTER DE GOB MX */
 ::ng-deep .main-footer{
     display: none!important;
 }
 
 ::ng-deep .navbar-fixed-top{
     top: .7px!important;
+}
+
+/* ESTRUCTURA GENERAL COMPONENTE BASE */
+
+.page-wrapper {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.sticky-header {
+    flex-grow: 0;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    flex-grow: 0;
 }

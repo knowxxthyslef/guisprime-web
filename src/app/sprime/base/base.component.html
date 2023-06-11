@@ -1,11 +1,23 @@
-<div class="header-nav"></div>
-<router-outlet name="base"></router-outlet>
-<div class="footer-sprei">
-   <div class="imss-footer-content">
-      <div class="imss-logo"></div>
-      <div class="imss-description">
-         
+<div class="page-wrapper">
+   <div class="sticky-header">
+      <div class="header-nav"></div>
+   </div>
+   <div class="content-wrapper">
+      <div class="content">
+         <router-outlet name="base"></router-outlet>
+      </div>
+      <div class="footer">
+         <div fxLayout="column" fxLayoutAlign="end stretch">
+            <div class="footer-sprei">
+               <div class="imss-footer-content">
+                  <div class="imss-logo"></div>
+                  <div class="imss-description">
+                     
+                  </div>
+               </div>
+            </div>
+            <div class="footer-last"></div>
+         </div>
       </div>
    </div>
-   <div class="footer-last"></div>
 </div>
