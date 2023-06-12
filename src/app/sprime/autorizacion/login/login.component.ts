@@ -35,8 +35,8 @@ export class LoginComponent extends GeneralComponent implements OnInit {
     }
   }
 
-  do(){
-    console.log(this.form)
-    this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados');
+  doLogin(){
+    /* this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados'); */
+    this._router.navigate(['home']);
   }
 }

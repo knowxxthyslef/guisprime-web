@@ -19,6 +19,19 @@ export const appRoutes: Routes = [
     ]
   },
   {
+    path: NAV.home,
+    pathMatch: 'prefix',
+    component: BaseComponent,
+    /* canActivateChild: [RolAuthorizacionGuard], */
+    children:[
+      {
+        path:'',
+        loadChildren:() => import('src/app/sprime/administracion/administracion.module').then(m=>m.AdministracionModule),
+        outlet:'base'
+      },
+    ]
+  },
+  {
     path: '**',
     redirectTo: NAV.login
   }

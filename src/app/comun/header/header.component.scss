@@ -1,0 +1,20 @@
+.header-user {
+    width: 100%;
+    position: sticky;
+    min-height: 55px;
+    background-color: #f5f5f5;
+    z-index: 990;
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px; */
+    /*  */box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 3px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 6px -8px;
+    border-radius: 0px 0px 8px 8px;
+    border: none!important;
+}
+
+.header-colapsable{
+    width: 100%;
+    min-height: 55px;
+    background-color: #f5f5f5;
+    z-index: 990;
+    border: none!important;
+}

@@ -4,6 +4,7 @@ import { TrimDirective } from './directives/trim.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from './alertas';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HeaderModule } from './header';
 
 
 @NgModule({
@@ -13,8 +14,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FormsModule,
     ReactiveFormsModule,
     AlertModule,
+    HeaderModule,
     FlexLayoutModule
   ],
-  exports: [FormsModule, ReactiveFormsModule, TrimDirective, AlertModule, FlexLayoutModule]
+  exports: [FormsModule, ReactiveFormsModule, TrimDirective, AlertModule, HeaderModule, FlexLayoutModule]
 })
 export class ComunModule { }
