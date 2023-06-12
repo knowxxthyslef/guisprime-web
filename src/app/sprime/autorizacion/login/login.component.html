@@ -1,4 +1,5 @@
 <div style="width: 100%; min-height: calc(100vh - 176px);"  fxLayout="row" fxLayoutAlign="center stretch">
+    <alert></alert>
     <div fxFlex="50" fxHide fxShow.gt-xs class="image-login" ></div>
     <div fxFlex="50" fxFlex.xs="100" fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="30px">
         <div fxLayout="column" fxLayoutAlign="center stretch">
@@ -33,7 +34,7 @@
                                     </div>
                                 </form>
                                 <div [style.marginTop.px]="10" fxFlexAlign="end">
-                                    <button class="btn btn-totalplay" style="width: 150px;" type="submit">
+                                    <button class="btn btn-totalplay" style="width: 150px;" type="submit" (click)="do()">
                                         Iniciar sesión
                                     </button>
                                 </div>

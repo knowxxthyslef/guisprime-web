@@ -11,7 +11,7 @@ import { BaseComponent } from './base/base.component';
   ],
   imports: [
     CommonModule,
-    SprimeRoutingModule,
+    SprimeRoutingModule
   ],
   exports:[
     BaseComponent

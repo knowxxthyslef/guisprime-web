@@ -87,3 +87,31 @@
   .btn-totalplay-danger:focus {
     box-shadow: 0 0 0 0.25rem rgb(249 90 54 / 25%);
   }
+
+ /* ESTILO ALERTAS */
+
+.border-success {
+  /* border: solid 1px #006455; */
+  border: solid 1px #285ced;
+  background-color: #e6edf6 !important;
+}
+.border-error {
+  border: solid 1px #f95a36;
+  background-color: #feead6 !important;
+}
+
+.border-info {
+  border: solid 1px #285ced;
+  background-color: #e6edf6 !important;
+}
+
+.border-warning {
+  border: solid 1px #aa9a09;
+}
+
+.image-alerta-bell {
+  background-image: url("assets/img/bell.svg");
+  background-size: 15px 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+}

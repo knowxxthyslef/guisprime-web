@@ -15,16 +15,16 @@ export class BaseComponent implements OnInit, OnDestroy, AfterViewInit, AfterVie
   }
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    /* throw new Error('Method not implemented.'); */
   }
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    /* throw new Error('Method not implemented.'); */
   }
   ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
+    /* throw new Error('Method not implemented.'); */
   }
   ngAfterViewChecked(): void {
-    throw new Error('Method not implemented.');
+    /* throw new Error('Method not implemented.'); */
   }
 
 }
