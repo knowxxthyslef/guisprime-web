@@ -4,3 +4,21 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.form-group{
+    position:relative;
+}
+
+.form-group .form-control-icon {
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    /* pointer-events: none; */
+    color: #aaa;
+    right: 10px;
+    top: 37px;
+}

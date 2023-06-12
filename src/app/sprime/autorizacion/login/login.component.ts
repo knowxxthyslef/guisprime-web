@@ -17,14 +17,26 @@ export class LoginComponent extends GeneralComponent implements OnInit {
     super();
   }
 
+  public curpPattern = "[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]";
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      curp:['', [Validators.required, Validators.maxLength(40)]],
-      password: ['', [Validators.maxLength(12), Validators.minLength(8)]]
+      curp:['', [Validators.required, 
+        Validators.maxLength(18), 
+        Validators.pattern(this.curpPattern)]],
+      password: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(8)]]
     });
   }
 
+  viewPassword(){
+    if(this.ver){
+      this.ver = false;
+    }else{
+      this.ver = true;
+    }
+  }
+
   do(){
-    this._alertsServices.info('<b>Alerta</b> No se pudo consultar el servicio de asegurados');
+    console.log(this.form)
+    this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados');
   }
 }

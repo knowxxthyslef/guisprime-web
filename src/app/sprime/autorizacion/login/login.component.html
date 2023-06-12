@@ -23,18 +23,40 @@
                                     <div class="form-group" [style.marginTop.px]="10">
                                         <label class="control-label" style="font-size: 14px;">CURP:</label>
                                         <input class="form-control" formControlName="curp" placeholder="Ingresar CURP" type="text"
-                                        maxlength="40" autocomplete="off" oninput="this.value = this.value.toUpperCase()"
-                                        style="font-size: 14px;">
+                                        maxlength="18" autocomplete="off" oninput="this.value = this.value.toUpperCase()"
+                                        style="font-size: 14px;" (keypress)="onlyalphaAndNumbers($event);">
+                                        <div *ngIf="form.controls['curp'].touched && form.controls['curp'].errors"
+                                            class="text-danger form-error-label">
+                                            <div *ngIf="form.controls['curp'].errors.required">
+                                                *Este campo es requerido
+                                            </div>
+                                            <div *ngIf="form.controls['curp'].errors.pattern">
+                                                *CURP inválido
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group"  [style.marginTop.px]="10">
                                         <label class="control-label" style="font-size: 14px;">Contraseña:</label>
                                         <input class="form-control" formControlName="password" placeholder="Ingresar contraseña" type="password"
                                         maxlength="12" minlength="8" [type]="ver ? 'text' : 'password'"
                                         style="font-size: 14px;">
+                                        <span class="bootstrap-icons form-control-icon" aria-hidden="true" (click)="viewPassword()">
+                                            <i class="bi bi-eye" *ngIf="!ver"></i>
+                                            <i class="bi bi-eye-slash" *ngIf="ver"></i>
+                                        </span>
+                                        <div *ngIf="form.controls['password'].touched && form.controls['password'].errors"
+                                            class="text-danger form-error-label">
+                                            <div *ngIf="form.controls['password'].errors.required">
+                                                *Este campo es requerido
+                                            </div>
+                                            <!-- <div *ngIf="form.controls['password'].errors.minlength">
+                                                *La longitud mínima son ocho caracteres
+                                            </div> -->
+                                        </div>
                                     </div>
                                 </form>
                                 <div [style.marginTop.px]="10" fxFlexAlign="end">
-                                    <button class="btn btn-totalplay" style="width: 150px;" type="submit" (click)="do()">
+                                    <button class="btn btn-sprime" style="width: 150px;" type="submit" (click)="do()" [disabled]="!this.form.valid">
                                         Iniciar sesión
                                     </button>
                                 </div>

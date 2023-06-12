@@ -61,7 +61,42 @@ export class GeneralComponent implements OnDestroy{
     
   }
 
+  /* CHARCODELIST */
+  /*
+    209 = Ñ
+    241 = ñ
+    32 = space
+  */
 
+  public onlyNumbers(event) {
+    let k;
+    k = event.charCode;
+    return (!(k > 31 && (k < 48 || k > 57)));
+  }
+
+  public onlyalpha(event) {
+    let k;
+    k = event.charCode;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 241 || k == 209);
+  }
+
+  public onlyalphaSpace(event) {
+    let k;
+    k = event.charCode;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || k == 241 || k == 209);
+  }
+
+  public onlyalphaEmail(event) {
+    let k;
+    k = event.charCode;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || (!(k > 31 && (k < 48 || k > 57))) || k == 8 || k == 46 || k == 64 || k == 241 || k == 209 || k == 45 || k == 95 );
+  }
+
+  public onlyalphaAndNumbers(event) {
+    let k;
+    k = event.charCode;
+    return ((k > 64 && k < 91) || (k > 96 && k < 123) || (!(k > 31 && (k < 48 || k > 57)))  || k == 8 || k == 241 || k == 209);
+  }
 
 
 }

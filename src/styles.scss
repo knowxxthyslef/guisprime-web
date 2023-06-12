@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
+.form-error-label{
+  font-size: 10px;
+  font-weight: 500;
+}
+
 /* ESTILO BTONES */
 
-.btn-totalplay {
+.btn-sprime {
     /* background-color: #8ac7d3; */
     background-color: #42a6b8;
     border: 1px solid #42a6b8;
@@ -15,7 +20,7 @@
     height: 38px;
 }
 
-.btn-totalplay:disabled {
+.btn-sprime:disabled {
     background-color: #8ac7d3;
     border: 1px solid #8ac7d3;
     border-radius: 8px !important;
@@ -26,33 +31,33 @@
     height: 38px;
 }
 
-.btn-totalplay:hover {
+.btn-sprime:hover {
     background-color: #8ac7d3!important;
     border: 1px solid #8ac7d3!important;
     color: #ffffff !important;
 }
 
-.btn-totalplay:active,
-.btn-totalplay:focus,
-.btn-totalplay:focus:active {
+.btn-sprime:active,
+.btn-sprime:focus,
+.btn-sprime:focus:active {
     color: #ffffff !important;
     outline-color: #8ac7d3!important;
     box-shadow: none!important;
 }
 
-.btn-totalplay:disabled:active {
+.btn-sprime:disabled:active {
     /* outline-color: none !important;
     box-shadow: none !important; */
 }
 
-.btn-totalplay-secondary:active,
-.btn-totalplay-secondary:focus,
-.btn-totalplay-secondary:focus:active {
+.btn-sprime-secondary:active,
+.btn-sprime-secondary:focus,
+.btn-sprime-secondary:focus:active {
     outline-color: #285ced !important;
     opacity: 0.7;
 }
 
-.btn-totalplay-secondary {
+.btn-sprime-secondary {
     background-color: #ffffff;
     border: 2px solid #285ced;
     border-radius: 2px !important;
@@ -62,16 +67,16 @@
     /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);*/
 }
   
-  .btn-totalplay-secondary:hover {
+  .btn-sprime-secondary:hover {
     color: #285ced !important;
   }
   
-  .btn-totalplay-secondary:disabled {
+  .btn-sprime-secondary:disabled {
     border: 1px solid #b1b3b3;
     color: #b1b3b3 !important;
   }
   
-  .btn-totalplay-danger {
+  .btn-sprime-danger {
     background-color: #ffffff;
     border: 2px solid #f95a36 !important;
     border-radius: 2px !important;
@@ -80,24 +85,24 @@
     width: 100%;
   }
   
-  .btn-totalplay-danger:hover {
+  .btn-sprime-danger:hover {
     background-color: #ffffff;
     color: #f95a36 !important;
   }
-  .btn-totalplay-danger:focus {
+  .btn-sprime-danger:focus {
     box-shadow: 0 0 0 0.25rem rgb(249 90 54 / 25%);
   }
 
  /* ESTILO ALERTAS */
 
 .border-success {
-  /* border: solid 1px #006455; */
-  border: solid 1px #285ced;
-  background-color: #e6edf6 !important;
+  border: solid 1px #006455;
+  /* border: solid 1px #285ced; */
+  /* background-color: #e6edf6 !important; */
 }
 .border-error {
   border: solid 1px #f95a36;
-  background-color: #feead6 !important;
+ /*  background-color: #feead6 !important; */
 }
 
 .border-info {
