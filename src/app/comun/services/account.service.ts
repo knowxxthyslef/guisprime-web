@@ -21,6 +21,8 @@ export class AccountService {
     
   }
 
-  
+  logout(){
+    this.router.navigate(['login']);
+  }
 
 }
