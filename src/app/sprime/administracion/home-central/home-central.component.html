@@ -1,39 +1,25 @@
 <app-header></app-header>
-<div style="width: 100%; min-height: calc(100vh - 231px);"  fxLayout="row" fxLayoutAlign="center stretch">
+<div style="width: 100%; min-height: calc(100vh - 231px); overflow: auto;" fxLayout="row" fxLayoutAlign="center stretch">
     <alert></alert>
-    <div fxFlex="45" fxHide fxShow.gt-xs fxLayout="column" fxLayoutAlign="center stretch">
+    <div fxFlex="40" fxHide fxShow.gt-xs fxLayout="column" fxLayoutAlign="center stretch">
         <div fxFlex="90" fxLayout="row" fxLayoutAlign="center stretch">
             <div fxFlex="90" class="image-home-central"></div>
         </div>
     </div>
-    <div fxFlex="45" fxFlex.xs="90" fxLayout="column" fxLayoutAlign="center stretch">
-        <div fxFlex="90" fxLayout="row" fxLayoutAlign="center stretch">
-            <div fxFlex="90">
-
-                
-                        <div class="row" style="background-color: antiquewhite;">
-                            <div class="col-6 py-3 px-3">
-                                <div style="background-color: red;">1</div>
-                            </div>
-                            <div class="col-6 py-3 px-3">
-                                <div style="background-color: red;">1</div>
-                            </div>
-                            <div class="col-6 py-3 px-3">
-                                <div style="background-color: red;">1</div>
-                            </div>
-                            <div class="col-6 py-3 px-3">
-                                <div style="background-color: red;">1</div>
-                            </div>
-                            <div class="col-6 py-3 px-3">
-                                <div style="background-color: red;">1</div>
-                            </div>
-                            <div class="col-6 py-3 px-3">
-                                <div style="background-color: red;">1</div>
-                            </div>
-                        </div>
-                    
-                    
-            </div>
+    <div fxFlex="50" fxFlex.xl="40"  fxFlex.lg="45" fxFlex.xs="65" fxLayout="column" fxLayoutAlign="center stretch">
+        <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.lt-sm="0px" fxLayoutAlign="flex-start" style="padding-top: 5%; padding-bottom: 5%;">
+            <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+                <app-button-menu fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-button-menu>
+            </ng-container>
         </div>
+        <!-- <div fxFlex="90" fxLayout="row" fxLayoutAlign="center stretch" style="background-color: pink;">
+            <div fxFlex="90">                
+                <div fxLayout="row wrap" fxLayoutGap="80px" fxLayoutGap.lt-sm="0px" fxLayoutAlign="flex-start">
+                    <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+                        <app-button-menu fxFlex="0 1 calc(50% - 80px)" fxFlex.lt-sm="100%"></app-button-menu>
+                    </ng-container>
+                </div>
+            </div>
+        </div> -->
     </div>
 </div>
