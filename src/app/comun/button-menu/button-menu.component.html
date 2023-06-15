@@ -1,12 +1,12 @@
 <div fxLayout="row" fxLayoutAlign="space-between stretch" [style.marginTop.px]="20" [style.marginBottom.px]="20"
 style="background: linear-gradient(#46a8b9, #96cfd9); border-radius: 10px; 
-min-height: 135px; box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;" >
+min-height: 135px; box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px; cursor: pointer;" (click)="send()">
     <div fxFlex="93" fxLayout="column" fxLayoutAlign="space-between stretch" 
     style="background-color: #f5f5f5; border-radius: 10px; border: 1px solid #eeeeee;">
-        <div fxFlex="60" fxFlexOffset="5" style="background-color: antiquewhite;" fxLayout="row" fxLayoutAlign="space-between stretch">
-            <div fxFlex="25"  fxFlex.xl="22" fxFlex.gt-md="22" fxFlex.md="35" fxFlex.sm="45"  fxFlexOffset="2" style="background-color: aquamarine;" fxLayout="column" fxLayoutAlign="center stretch">
-                <div fxFlex="80" fxFlex.sm="60" fxLayout="row" fxLayoutAlign="center stretch">
-                    <div fxFlex="80" class="button-ico"></div>
+        <div fxFlex="60" fxFlexOffset="5" fxLayout="row" fxLayoutAlign="space-between stretch">
+            <div fxFlex="28" fxFlex.xl="22" fxFlex.gt-md="22" fxFlex.md="35" fxFlex.sm="45"  fxFlexOffset="2" fxLayout="column" fxLayoutAlign="center stretch">
+                <div fxFlex="90" fxFlex.sm="60" fxLayout="row" fxLayoutAlign="center stretch">
+                    <div fxFlex="85" [ngClass]="icon"></div>
                 </div>
             </div>
             <div [style.marginRight.px]="10" style="position: relative; margin-top: -10px;">
@@ -15,10 +15,10 @@ min-height: 135px; box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;" >
                 </span>
             </div>
         </div>
-        <div fxFlex="30" fxHide fxShow.gt-xs style="background-color: white;"  fxLayout="row" fxLayoutAlign="center center" [style.marginLeft.px]="5">
+        <div fxFlex="30" fxHide fxShow.gt-xs fxLayout="row" fxLayoutAlign="center center" [style.marginLeft.px]="5">
             <div [innerHTML]="description | safe: 'html'" style="font-size: 1vw; font-weight: 600; line-height: 1.1vw;"></div>
         </div>
-        <div fxFlex="30" fxHide fxShow.xs style="background-color: white;"  fxLayout="row" fxLayoutAlign="center center" [style.marginLeft.px]="5">
+        <div fxFlex="30" fxHide fxShow.xs fxLayout="row" fxLayoutAlign="center center" [style.marginLeft.px]="5">
             <div [innerHTML]="description | safe: 'html'" style="font-size: 16px; font-weight: 600; line-height: 16px;"></div>
         </div>
         <div fxFlex="10"></div>

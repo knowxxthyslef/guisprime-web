@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button-menu',
@@ -8,15 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ButtonMenuComponent implements OnInit {
 
   @Input() ruta: string = '';
-  @Input() icon: string = '';
+  @Input() icon: string = 'button-ico';
   @Input() description: string = 'Reporte de extracción<br> de patrones';
-  constructor() { }
+  constructor(private router: Router,) { }
 
   ngOnInit(): void {
   }
 
   send(){
-    
+    this.router.navigate(['login']);
   }
 
 }

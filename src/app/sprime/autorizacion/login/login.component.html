@@ -1,10 +1,10 @@
 <div style="width: 100%; min-height: calc(100vh - 176px);"  fxLayout="row" fxLayoutAlign="center stretch">
     <alert></alert>
-    <div fxFlex="50" fxHide fxShow.gt-xs class="image-login" ></div>
-    <div fxFlex="50" fxFlex.xs="100" fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="30px">
+    <div fxFlex="50" fxFlex.xl="55" fxFlex.md="45" fxFlex.sm="30" fxHide fxShow.gt-xs class="image-login" ></div>
+    <div fxFlex="50" fxFlex.xl="45" fxFlex.md="55" fxFlex.sm="70" fxFlex.xs="100" fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="30px">
         <div fxLayout="column" fxLayoutAlign="center stretch">
             <div fxLayout="row" fxLayoutAlign="center stretch" [style.marginTop.px]="30">
-                <div fxFlex="65" fxLayout="column" fxLayoutAlign="space-around stretch">
+                <div fxFlex="65" fxFlex.xl="50"  fxFlex.lg="60" fxFlex.xs="70" fxLayout="column" fxLayoutAlign="space-around stretch">
                     <div style="font-size: 3rem; font-weight: 600; color: #42a6b8;">SPRIME</div>
                     <div style="font-size: 2.2rem; font-weight: 600; color: #565f76;">Sistema para Ubicar en la Prima Media a Patrones Vigentes sin Trabajadores</div>
                 </div>
@@ -12,7 +12,7 @@
         </div>
         <div fxLayout="column" fxLayoutAlign="center stretch">
             <div fxLayout="row" fxLayoutAlign="center stretch"  [style.marginBottom.px]="30">
-                <div fxFlex="65" fxLayout="column" fxLayoutAlign="space-around stretch">
+                <div fxFlex="65" fxFlex.xl="55"  fxFlex.lg="60" fxFlex.xs="70" fxLayout="column" fxLayoutAlign="space-around stretch">
                     <div style="box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; 
                     min-width: 100%; min-height: 40vh; border-radius: 10px;" div fxLayout="column" fxLayoutAlign="center stretch" >
                         <div fxLayout="row" fxLayoutAlign="center stretch" [style.marginTop.px]="30" [style.marginBottom.px]="30">
@@ -24,7 +24,7 @@
                                         <label class="control-label" style="font-size: 14px;">CURP:</label>
                                         <input class="form-control" formControlName="curp" placeholder="Ingresar CURP" type="text"
                                         maxlength="18" autocomplete="off" oninput="this.value = this.value.toUpperCase()"
-                                        style="font-size: 14px;" (keypress)="onlyalphaAndNumbers($event);">
+                                        style="font-size: 14px;" (keypress)="onlyalphaAndNumbers($event);" appTrim>
                                         <div *ngIf="form.controls['curp'].touched && form.controls['curp'].errors"
                                             class="text-danger form-error-label">
                                             <div *ngIf="form.controls['curp'].errors.required">
