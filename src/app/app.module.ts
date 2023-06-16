@@ -9,6 +9,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { AppInjectorService } from './comun/herencia/app-injector.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     HttpClientModule
   ],
   exports:[NgxSpinnerModule],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    DatePipe,
+    CurrencyPipe],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

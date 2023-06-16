@@ -1,3 +1,4 @@
+import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainTitleComponent implements OnInit {
 
-  constructor() { }
+
+  public date = new Date();
+  /* public today:string=formatDate(this.date, 'yyyy-MM-dd', 'es-MX'); */
+  pipe = new DatePipe('es-MX')
+
+  
+  public today:string =  this.pipe.transform(this.date, 'yyyy-MM-dd', 'es-MX');
+
+  constructor(public datePipe: DatePipe) { }
+ 
 
   ngOnInit(): void {
   }
