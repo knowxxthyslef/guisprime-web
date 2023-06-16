@@ -25,6 +25,9 @@ export class LoginComponent extends GeneralComponent implements OnInit {
         Validators.pattern(this.curpPattern)]],
       password: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(8)]]
     });
+
+    this.form.get('curp').setValue('HELB931103HMCRZR00');
+    this.form.get('password').setValue('Mexico82'); 
   }
 
   viewPassword(){

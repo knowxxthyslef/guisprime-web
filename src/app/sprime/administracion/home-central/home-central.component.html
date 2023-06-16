@@ -8,8 +8,8 @@
     </div>
     <div fxFlex="50" fxFlex.xl="40"  fxFlex.lg="45" fxFlex.xs="65" fxLayout="column" fxLayoutAlign="center stretch">
         <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.lt-sm="0px" fxLayoutAlign="flex-start" style="padding-top: 5%; padding-bottom: 5%;">
-            <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
-                <app-button-menu fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-button-menu>
+            <ng-container *ngFor="let button of menuList">
+                <app-button-menu [button]="button" fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-button-menu>
             </ng-container>
         </div>
         <!-- <div fxFlex="90" fxLayout="row" fxLayoutAlign="center stretch" style="background-color: pink;">

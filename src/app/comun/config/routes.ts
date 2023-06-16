@@ -6,6 +6,11 @@ import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: NAV.login
+  },
+  {
     path: NAV.login,
     pathMatch: 'prefix',
     component: BaseComponent,

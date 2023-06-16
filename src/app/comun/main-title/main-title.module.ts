@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonMenuComponent } from './button-menu.component';
+import { MainTitleComponent } from './main-title.component';
 import { ComunModule } from '../comun.module';
-
-
 
 @NgModule({
   declarations: [
-    ButtonMenuComponent
+    MainTitleComponent
   ],
   imports: [
     CommonModule,
     ComunModule
   ],
-  exports:[ButtonMenuComponent]
+  exports:[MainTitleComponent]
 })
-export class ButtonMenuModule { }
+export class MainTitleModule { }
