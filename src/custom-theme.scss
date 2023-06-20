@@ -1,0 +1,118 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+
+$md-mcgpalette0: (
+    50 : #ede4e6,
+    100 : #d2bbc2,
+    200 : #b48e99,
+    300 : #966070,
+    400 : #803e51,
+    500 : #691c32,
+    600 : #61192d,
+    700 : #561426,
+    800 : #4c111f,
+    900 : #3b0913,
+    A100 : #691c32,
+    A200 : #691c32,
+    A400 : #691c32,
+    A700 : #691c32,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$custom-theme-primary: mat-palette($md-mcgpalette0);
+$custom-theme-accent: mat-palette($md-mcgpalette0, A200, A100, A400);
+$custom-theme-warn: mat-palette($md-mcgpalette0);
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Montserrat'!important
+  );
+
+@include angular-material-theme($custom-theme);
+@include angular-material-typography($custom-typography);
+
+/* .basic-other-container .mat-expansion-indicator::after {
+  margin: -10px;
+  height: 35px;
+  width: 30px;
+  background-image: url('assets/img/Down.svg');
+  background-size: cover;
+  border: none;
+  border-width: 0 !important;
+  transform: rotate(0) !important;
+}
+
+
+.Archivo{
+  text-align: left;
+  color: #fff;
+  background-color: #9D2449;
+  border-color: #9D2449;
+}
+
+.basic-container .mat-expansion-indicator::after {
+  margin: -10px;
+  height: 35px;
+  width: 30px;
+  background-image: url('assets/img/Down.svg');
+  background-size: cover;
+  border: none;
+  border-width: 0 !important;
+  transform: rotate(0) !important;
+  display: none !important;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  position: absolute;
+  align-items: flex-end;
+  align-content: flex-end;
+  right: 35px;
+  max-width: 100%;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+} */
+
+
+select::-ms-expand {
+  display: none; /*Evita que se muestre la flecha por defecto en versiones de IE*/
+}
+
+.color {
+  color: #9f2241;
+}
+
+.colorBlack {
+  color: black;
+  font-weight: bold;
+}
+
+
+.input-upper {
+  text-transform: uppercase;
+}
+
+

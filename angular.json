@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/ngx-spinner/animations/ball-spin.css"
+              "node_modules/ngx-spinner/animations/ball-spin.css",
+              "src/custom-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
