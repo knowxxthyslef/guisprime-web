@@ -1,20 +1,20 @@
 <div class="main-title">
     <div fxLayout="row" fxLayoutAlign="space-between center" [style.marginLeft.px]="30" [style.marginRight.px]="30" style="min-height: 60px;">
         <div fxFlex="70" fxFlex.xs="100" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-            <div>
-                <div style="border: 2px solid #565f76; border-radius: 8px; width: 35px!important; height: 35px!important; overflow: hidden!important; cursor: pointer;">
+            <div *ngIf="salir">
+                <div style="border: 2px solid #565f76; border-radius: 8px; width: 35px!important; height: 35px!important; overflow: hidden!important; cursor: pointer;" (click)="salir()">
                     <div class="arrow-back"></div>
                 </div>
             </div>
             <div fxHide fxShow.gt-xs style="font-size: 2.1rem; font-weight: 600; color: black; padding-left: 15px; min-width: 130px; text-overflow: ellipsis;">
-                Reporte detalle del sistema para ubicar en la PM a patrones vigentes sin trabajadores
+                {{ title?.title }}
             </div>
             <div fxHide fxShow.xs fxLayout="column" fxLayoutAlign="center stretch">
                 <div style="font-size: 1.8rem; font-weight: 600; color: black; min-width: 130px; text-overflow: ellipsis;" [style.marginTop.px]="10">
-                    Reporte detalle del sistema para ubicar en la PM a patrones vigentes sin trabajadores
+                    {{ title?.title }}
                 </div>
                 <div style="font-size: 16px; font-weight: 500;" [style.marginBottom.px]="10">
-                    Miércoles 12 de Octubre de 2022
+                    {{ ((this.today | date: 'EEEE, d') | titlecase) + ' de ' + (this.today | date: 'MMMM') + ' de ' + (this.today | date: 'y') + ''}} 
                 </div>
             </div>
         </div>

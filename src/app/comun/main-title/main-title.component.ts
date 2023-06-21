@@ -1,5 +1,7 @@
 import { DatePipe, formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MainTitle } from './main-title.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-title',
@@ -8,18 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainTitleComponent implements OnInit {
 
+  @Input() title: MainTitle = new MainTitle({
+    title: '',
+    salir: false,
+    url: 'home'
+  });
+
 
   public date = new Date();
-  /* public today:string=formatDate(this.date, 'yyyy-MM-dd', 'es-MX'); */
   pipe = new DatePipe('es-MX')
-
-  
   public today:string =  this.pipe.transform(this.date, 'yyyy-MM-dd', 'es-MX');
 
-  constructor(public datePipe: DatePipe) { }
- 
+  constructor(public datePipe: DatePipe, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  salir(){
+    this.router.navigate([this.title.url]);
   }
 
 }
