@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonMenu } from 'src/app/comun/button-menu';
+import { ConfirmDialogService } from 'src/app/comun/confirm-dialog/confirm-dialog.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/comun/confirm-dialog';
 
 @Component({
   selector: 'app-reporte-detalle',
@@ -8,7 +11,10 @@ import { ButtonMenu } from 'src/app/comun/button-menu';
 })
 export class ReporteDetalleComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog,
+    private dialogService: ConfirmDialogService
+    ) { }
   menuList: ButtonMenu[] = [];
 
   ngOnInit(): void {
@@ -47,6 +53,23 @@ export class ReporteDetalleComponent implements OnInit {
     this.menuList.push(reporteDetalles);
     this.menuList.push(cifrasAPM);
     
+  }
+
+  openDialog(){
+    const dialogRef = this.dialog.open(
+      ConfirmDialogComponent, 
+      this.dialogService.cuentaCreada()
+    );
+    dialogRef.afterClosed().subscribe(
+      _data => {
+        console.log(_data);
+        if(_data == true){
+          
+        }else{
+
+        }
+      }
+    );
   }
 
 }

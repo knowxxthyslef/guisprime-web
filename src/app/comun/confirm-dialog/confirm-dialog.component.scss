@@ -1,0 +1,10 @@
+::ng-deep .confirm .mat-dialog-content{
+    min-width: 480px!important;
+    min-height: 300px!important;
+}
+
+::ng-deep .confirm .dialog-close-button{
+    outline: none!important;
+    border: none!important;
+    box-shadow: none!important;
+}

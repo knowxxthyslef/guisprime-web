@@ -13,6 +13,7 @@ import { CifrasPatronesComponent } from './cifras-patrones/cifras-patrones.compo
 import { AutorizarApmComponent } from './autorizar-apm/autorizar-apm.component';
 import { GenerarArchivosComponent } from './generar-archivos/generar-archivos.component';
 import { MainTitleModule } from 'src/app/comun/main-title';
+import { ConfirmDialogModule } from 'src/app/comun/confirm-dialog';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MainTitleModule } from 'src/app/comun/main-title';
     ComunModule,
     AdministracionRoutingModule,
     ButtonMenuModule,
+    ConfirmDialogModule,
     MainTitleModule,
     SprimeModule
   ]
