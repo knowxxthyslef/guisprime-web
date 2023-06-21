@@ -1,2 +1,18 @@
 <app-header></app-header>
+<alert></alert>
 <app-main-title [title]="{title: 'Reporte detalle del sistema para ubicar en la PM a patrones vigentes sin trabajadores', salir: false, url: 'home'}"></app-main-title>
+<div style="width: 100%; min-height: calc(100vh - 297px); overflow: auto;" fxLayout="row" fxLayoutAlign="center stretch">
+    <div fxFlex="40" fxHide fxShow.gt-xs fxLayout="column" fxLayoutAlign="center stretch">
+        <div fxFlex="90" fxLayout="row" fxLayoutAlign="center stretch">
+            <div fxFlex="90" class="image-reporte-detalle"></div>
+        </div>
+    </div>
+    <div fxFlex="50" fxFlex.xl="40"  fxFlex.lg="45" fxFlex.xs="65" fxLayout="column" fxLayoutAlign="center stretch">
+        <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.lt-sm="0px" fxLayoutAlign="flex-start" style="padding-top: 5%; padding-bottom: 5%;">
+            <ng-container *ngFor="let button of menuList">
+                <app-button-menu [button]="button" fxFlex="0 1 calc(50%)" fxFlex.md="0 1 calc(60%)" fxFlex.lt-sm="100%"></app-button-menu>
+            </ng-container>
+            <!-- fxFlex.sm="0 1 calc(75%)"  -->
+        </div>
+    </div>
+</div>

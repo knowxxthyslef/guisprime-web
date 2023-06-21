@@ -12,7 +12,10 @@ export class HomeCentralComponent implements OnInit {
   menuList: ButtonMenu[] = [];
 
   ngOnInit(): void {
-    
+    this.generarMenu();
+  }
+
+  generarMenu(){
     let reporteExtraccion = new ButtonMenu({
       icon: 'reporte-extraccion',
       secondaryColor: 'linear-gradient(#46a8b9, #96cfd9)',
@@ -73,8 +76,6 @@ export class HomeCentralComponent implements OnInit {
     this.menuList.push(cifrasPatrones);
     this.menuList.push(autorizarAPM);
     this.menuList.push(generarArchivos);
-
-
   }
 
 }
