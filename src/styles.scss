@@ -40,7 +40,10 @@ $guisprime-web-theme: mat.define-light-theme((
   font-weight: 500;
 }
 
-/* ESTILO BTONES */
+/* ESTILO BOTONES */
+
+
+/* BOTON PRINCIPAL */
 
 .btn-sprime {
     /* background-color: #8ac7d3; */
@@ -85,31 +88,55 @@ $guisprime-web-theme: mat.define-light-theme((
     box-shadow: none !important; */
 }
 
+/* BOTON PRINCIPAL */
+
+/* BOTON SECUNDARIO */
+
+.btn-sprime-secondary {
+  /* background-color: #8ac7d3; */
+  background-color: #565f76;
+  border: 1px solid #565f76;
+  border-radius: 8px !important;
+  font-size: 1.5rem;
+  color: #ffffff;
+  width: 100%;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  line-height: 1.5rem;
+  height: 38px;
+}
+
+.btn-sprime-secondary:disabled {
+  background-color: #717c98;
+  border: 1px solid #717c98;
+  border-radius: 7px !important;
+  font-size: 1.5rem;
+  color: #ffffff !important;
+  width: 100%;
+  line-height: 1.5rem;
+  height: 38px;
+}
+
+.btn-sprime-secondary:hover {
+  background-color: #717c98!important;
+  border: 1px solid #717c98!important;
+  color: #ffffff !important;
+}
+
 .btn-sprime-secondary:active,
 .btn-sprime-secondary:focus,
 .btn-sprime-secondary:focus:active {
-    outline-color: #285ced !important;
-    opacity: 0.7;
+  color: #ffffff !important;
+  outline-color: #717c98!important;
+  box-shadow: none!important;
 }
 
-.btn-sprime-secondary {
-    background-color: #ffffff;
-    border: 2px solid #285ced;
-    border-radius: 2px !important;
-    font-size: 1rem;
-    color: #285ced;
-    width: 100%;
-    /*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);*/
+.btn-sprime-secondary:disabled:active {
+  /* outline-color: none !important;
+  box-shadow: none !important; */
 }
-  
-  .btn-sprime-secondary:hover {
-    color: #285ced !important;
-  }
-  
-  .btn-sprime-secondary:disabled {
-    border: 1px solid #b1b3b3;
-    color: #b1b3b3 !important;
-  }
+
+/* BOTON SECUNDARIO */
+
   
   .btn-sprime-danger {
     background-color: #ffffff;
@@ -124,6 +151,7 @@ $guisprime-web-theme: mat.define-light-theme((
     background-color: #ffffff;
     color: #f95a36 !important;
   }
+
   .btn-sprime-danger:focus {
     box-shadow: 0 0 0 0.25rem rgb(249 90 54 / 25%);
   }

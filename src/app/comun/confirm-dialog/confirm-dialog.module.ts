@@ -17,6 +17,7 @@ import { ComunModule } from '../comun.module';
     MatButtonModule,
     MatIconModule,
     ComunModule,
+    CommonModule
   ],
   exports: [
     ConfirmDialogComponent

@@ -6,45 +6,54 @@
             </mat-icon>
         </button>
     </div>
-    <div  fxLayout="row" fxLayoutAlign="center center"> 
-        icono
+    <div  fxLayout="row" fxLayoutAlign="center center">
+        <ng-container *ngIf="data.type === 'error'">
+            <span class="bootstrap-icons form-control-icon" aria-hidden="true" style="font-size: 35px!important;">
+                <i class="bi bi-exclamation-circle" style="color: #e10000!important;"></i>
+            </span>
+        </ng-container>
+        <ng-container *ngIf="data.type === 'success'">
+            <span class="bootstrap-icons form-control-icon" aria-hidden="true" style="font-size: 35px!important;">
+                <i class="bi bi-exclamation-circle" style="color: #31781f!important;"></i>
+            </span>
+        </ng-container>
+        <ng-container *ngIf="data.type === 'warn'">
+            <span class="bootstrap-icons form-control-icon" aria-hidden="true" style="font-size: 35px!important;">
+                <i class="bi bi-exclamation-circle" style="color: #f6d7a2!important;"></i>
+            </span>
+        </ng-container>
+        <ng-container *ngIf="data.type === 'info'">
+            <span class="bootstrap-icons form-control-icon" aria-hidden="true" style="font-size: 35px!important;">
+                <i class="bi bi-exclamation-circle" style="color: #a1acf7!important;"></i>
+            </span>
+        </ng-container>
     </div>
-    <div  fxLayout="row" fxLayoutAlign="center center" style="border-bottom: 1px solid #eeeeee; height: 60px; font-size: 18px; color: #121212; font-weight: 600;"> 
-        Aviso
+    <div  fxLayout="row" fxLayoutAlign="center center" [style.marginRight.px]="30" [style.marginLeft.px]="30" style="border-bottom: 1px solid #eeeeee; height: 60px; font-size: 18px; color: #121212; font-weight: 600; max-width: 418px!important; text-align: center;"> 
+        {{data.title}}
     </div>
-    <div fxLayout="row" fxLayoutAlign="center center" [style.marginTop.px]="25"  [style.marginBottom.px]="25">
-        <div [innerHTML]="'La CURP ingresada NO existe en el <br> sistema SPRIME ¿Deseas darla de alta?' | safe: 'html'" style="font-size: 16px; font-weight: 500; line-height: normal; color: #121212;"></div>
+    <div fxLayout="row" fxLayoutAlign="center center" [style.marginTop.px]="25"  [style.marginBottom.px]="25" [style.marginRight.px]="30" [style.marginLeft.px]="30">
+        <div [innerHTML]="(data.subtitle | safe: 'html')" style="font-size: 16px; font-weight: 500; line-height: normal; color: #121212; max-width: 418px!important; text-align: center;"></div>
     </div>
 
-    <div style="background-color: #f5f5f5; height: 79px; width: 478px!important; flex-grow: 0; margin: 0; padding: 0;">
-
-    </div>
-   <!--  <mat-dialog-actions style="background-color: #f5f5f5;">
-        <div class="container" style="width: 100%; margin: 0; padding: 0;">
-            <div class="row" style="width: 100%; margin: 0; padding: 0;">
-                
-                    
-                    <div class="col-6"  style="margin: 0; padding: 0;">
-                        <button type="button" 
-                                class="btn-totalplay-secondary"
-                                style="height: 45px; font-size: 14px; line-height: 25px;"
-                                *ngIf="data.showCancelMessage"
-                                (click)="closeDialog()">
-                                {{ data.cancelMessage }}
-                        </button>
-                    </div>
-                    
-                    <div class="col-6"  style="margin: 0; padding: 0;">
-                        <button type="button" 
-                                class="btn-totalplay"
-                                style="float: right; width: 150px;  height: 45px; font-size: 14px; line-height: 25px;"
-                                (click)="confirmDialog()">
-                                {{ data.confirmMessage }}
-                        </button>
-                    </div>
-                    
-                
+    <div style="background-color: #f5f5f5; height: 79px; width: 478px!important; margin: 0; padding: 0;" fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex="75" fxLayout="row" fxLayoutAlign="space-around center" *ngIf="data.showCancelMessage">
+                <div>
+                    <button class="btn btn-sprime-secondary" style="width: 150px; font-size: 14px!important;" (click)="closeDialog()">
+                        {{ data.cancelMessage }}
+                    </button>
+                </div>
+                <div>
+                    <button class="btn btn-sprime" style="width: 150px; font-size: 14px!important;" (click)="confirmDialog()">
+                        {{ data.confirmMessage }}
+                    </button>
+                </div>
             </div>
-        </div>
-    </mat-dialog-actions> -->
+            <div fxFlex="75" fxLayout="row" fxLayoutAlign="center center" *ngIf="!data.showCancelMessage" (click)="confirmDialog()">
+                <div>
+                    <button class="btn btn-sprime" style="width: 150px; font-size: 14px!important;">
+                        {{ data.confirmMessage }}
+                    </button>
+                </div>
+            </div>
+    </div>
 </div>

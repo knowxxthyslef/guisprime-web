@@ -5,16 +5,24 @@ import { MatDialogConfig } from '@angular/material/dialog';
 export class ConfirmDialogService {
     private dialogConfig = new MatDialogConfig();
 
-    leavingBeforeSubmit(): MatDialogConfig {
+    /* 
+    TYPE:
+    success
+    error
+    warn
+    info 
+    */
+
+    generarReporte(): MatDialogConfig {
         this.dialogConfig.restoreFocus = false;
         this.dialogConfig.autoFocus = false;
         this.dialogConfig.data = {
-            title: "Contraseña actualizada",
-            subtitle: "<b>¡Recuerda!</b>, tu nueva contraseña te permitirá accesar cuando lo necesites.",
-            cancelMessage: "Cancelar",
-            confirmMessage: "Entendido",
+            title: "Generar reporte",
+            subtitle: "¿Deseas descagar el reporte en PDF?",
+            cancelMessage: "No",
+            confirmMessage: "Si",
             type: "success",
-            showCancelMessage: false
+            showCancelMessage: true
         }
         return this.dialogConfig;
     }

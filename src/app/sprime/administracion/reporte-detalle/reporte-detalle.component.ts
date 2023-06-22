@@ -58,7 +58,7 @@ export class ReporteDetalleComponent implements OnInit {
   openDialog(){
     const dialogRef = this.dialog.open(
       ConfirmDialogComponent, 
-      this.dialogService.cuentaCreada()
+      this.dialogService.generarReporte()
     );
     dialogRef.afterClosed().subscribe(
       _data => {
