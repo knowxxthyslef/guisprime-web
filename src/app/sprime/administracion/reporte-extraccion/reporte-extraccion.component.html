@@ -1,2 +1,5 @@
 <app-header></app-header>
 <app-main-title [title]="{title: 'Reporte de extracción de patrones sin trabajadores', salir: false, url: 'home'}"></app-main-title>
+<div style="width: calc(100% - 60px); min-height: calc(100vh - 297px);" fxLayout="row" fxLayoutAlign="center stretch" [style.marginLeft.px]="30" [style.marginRight.px]="30">
+    <app-data-table [data]="cars$ | async"></app-data-table>
+</div>

@@ -14,6 +14,7 @@ import { AutorizarApmComponent } from './autorizar-apm/autorizar-apm.component';
 import { GenerarArchivosComponent } from './generar-archivos/generar-archivos.component';
 import { MainTitleModule } from 'src/app/comun/main-title';
 import { ConfirmDialogModule } from 'src/app/comun/confirm-dialog';
+import { DataTableModule } from 'src/app/comun/data-table';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ConfirmDialogModule } from 'src/app/comun/confirm-dialog';
     ButtonMenuModule,
     ConfirmDialogModule,
     MainTitleModule,
+    DataTableModule,
     SprimeModule
   ]
 })
