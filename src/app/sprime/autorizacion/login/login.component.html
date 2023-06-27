@@ -82,10 +82,12 @@
                     min-width: 100%; min-height: 40vh; border-radius: 10px;" div fxLayout="column" fxLayoutAlign="center stretch" >
                         <div fxLayout="row" fxLayoutAlign="center stretch" [style.marginTop.px]="30" [style.marginBottom.px]="30">
                             <div fxFlex="85" fxLayout="column" fxLayoutAlign="center stretch">
+                                <div style="font-weight: 600; font-size: 1.9rem;" fxFlexAlign="center"> Cambiar contraseña</div>
+                                <div style="font-weight: 600; font-size: 1.7rem;" fxFlexAlign="center"  [style.marginTop.px]="5"> Ingresa tu nueva contraseña</div>
                                 <form [formGroup]="form">
                                     <div class="form-group" [style.marginTop.px]="10">
                                         <label class="control-label" style="font-size: 14px;">CURP:</label>
-                                        <input class="form-control" formControlName="curp" placeholder="Ingresar CURP" type="text"
+                                        <input  class="form-control" formControlName="curp" placeholder="Ingresar CURP" type="text"
                                         maxlength="18" autocomplete="off" oninput="this.value = this.value.toUpperCase()"
                                         style="font-size: 14px;" (keypress)="onlyalphaAndNumbers($event);" appTrim>
                                         <div *ngIf="form.controls['curp'].touched && form.controls['curp'].errors"
@@ -126,6 +128,9 @@
                                             <i class="bi bi-eye" *ngIf="!ver"></i>
                                             <i class="bi bi-eye-slash" *ngIf="ver"></i>
                                         </span>
+                                        <div fxFlexAlign="right" [style.marginTop.px]="5">
+                                            La contraseña debe contener: 6 letras, 3 n&uacute;meros y 1 caracter especial.
+                                    </div>
                                         <div *ngIf="form.controls['password'].touched && form.controls['password'].errors"
                                             class="text-danger form-error-label">
                                             <div *ngIf="form.controls['password'].errors.required">
@@ -137,16 +142,12 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div 
-                                    
-                                    fxFlexAlign="right"  
-                                    [style.marginTop.px]="5">
-                                    <span (click)="passwordReset = !passwordReset" style="color:blue; cursor: pointer;" >
-                                        Iniciar sesi&oacute;n
-                                    </span>
-                                     
-                                    </div>
                                 <div [style.marginTop.px]="10" fxFlexAlign="end">
+                                    <button (click)="passwordReset = !passwordReset"
+                                     class="btn btn-sprime-secondary" 
+                                     style="width: 150px; margin-right: 10px;"  >
+                                        Cancelar
+                                    </button>
                                     <button class="btn btn-sprime" style="width: 150px;" type="submit" (click)="doLogin()" [disabled]="!this.form.valid">
                                         Guardar
                                     </button>
