@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <div fxLayout="column" fxLayoutAlign="center stretch">
+        <div *ngIf="!passwordReset" fxLayout="column" fxLayoutAlign="center stretch" >
             <div fxLayout="row" fxLayoutAlign="center stretch"  [style.marginBottom.px]="30">
                 <div fxFlex="65" fxFlex.xl="55"  fxFlex.lg="60" fxFlex.xs="70" fxLayout="column" fxLayoutAlign="space-around stretch">
                     <div style="box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; 
@@ -55,9 +55,100 @@
                                         </div>
                                     </div>
                                 </form>
+                                <div 
+                                    
+                                    fxFlexAlign="right"  
+                                    [style.marginTop.px]="5">
+                                    <span (click)="passwordReset = !passwordReset" style="color:blue; cursor: pointer;" >
+                                        Olvide mi contraseña
+                                    </span>
+                                     
+                                    </div>
                                 <div [style.marginTop.px]="10" fxFlexAlign="end">
                                     <button class="btn btn-sprime" style="width: 150px;" type="submit" (click)="doLogin()" [disabled]="!this.form.valid">
                                         Iniciar sesión
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="passwordReset" fxLayout="column" fxLayoutAlign="center stretch" >
+            <div fxLayout="row" fxLayoutAlign="center stretch"  [style.marginBottom.px]="30">
+                <div fxFlex="65" fxFlex.xl="55"  fxFlex.lg="60" fxFlex.xs="70" fxLayout="column" fxLayoutAlign="space-around stretch">
+                    <div style="box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; 
+                    min-width: 100%; min-height: 40vh; border-radius: 10px;" div fxLayout="column" fxLayoutAlign="center stretch" >
+                        <div fxLayout="row" fxLayoutAlign="center stretch" [style.marginTop.px]="30" [style.marginBottom.px]="30">
+                            <div fxFlex="85" fxLayout="column" fxLayoutAlign="center stretch">
+                                <form [formGroup]="form">
+                                    <div class="form-group" [style.marginTop.px]="10">
+                                        <label class="control-label" style="font-size: 14px;">CURP:</label>
+                                        <input class="form-control" formControlName="curp" placeholder="Ingresar CURP" type="text"
+                                        maxlength="18" autocomplete="off" oninput="this.value = this.value.toUpperCase()"
+                                        style="font-size: 14px;" (keypress)="onlyalphaAndNumbers($event);" appTrim>
+                                        <div *ngIf="form.controls['curp'].touched && form.controls['curp'].errors"
+                                            class="text-danger form-error-label">
+                                            <div *ngIf="form.controls['curp'].errors.required">
+                                                *Este campo es requerido
+                                            </div>
+                                            <div *ngIf="form.controls['curp'].errors.pattern">
+                                                *CURP inválido
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"  [style.marginTop.px]="10">
+                                        <label class="control-label" style="font-size: 14px;">Contraseña:</label>
+                                        <input class="form-control" formControlName="password" placeholder="Ingresar contraseña" type="password"
+                                        maxlength="12" minlength="8" [type]="ver ? 'text' : 'password'"
+                                        style="font-size: 14px;">
+                                        <span class="bootstrap-icons form-control-icon" aria-hidden="true" (click)="viewPassword()">
+                                            <i class="bi bi-eye" *ngIf="!ver"></i>
+                                            <i class="bi bi-eye-slash" *ngIf="ver"></i>
+                                        </span>
+                                        <div *ngIf="form.controls['password'].touched && form.controls['password'].errors"
+                                            class="text-danger form-error-label">
+                                            <div *ngIf="form.controls['password'].errors.required">
+                                                *Este campo es requerido
+                                            </div>
+                                            <!-- <div *ngIf="form.controls['password'].errors.minlength">
+                                                *La longitud mínima son ocho caracteres
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group"  [style.marginTop.px]="10">
+                                        <label class="control-label" style="font-size: 14px;">Confirmar contraseña:</label>
+                                        <input class="form-control" formControlName="password" placeholder="Ingresar contraseña" type="password"
+                                        maxlength="12" minlength="8" [type]="ver ? 'text' : 'password'"
+                                        style="font-size: 14px;">
+                                        <span class="bootstrap-icons form-control-icon" aria-hidden="true" (click)="viewPassword()">
+                                            <i class="bi bi-eye" *ngIf="!ver"></i>
+                                            <i class="bi bi-eye-slash" *ngIf="ver"></i>
+                                        </span>
+                                        <div *ngIf="form.controls['password'].touched && form.controls['password'].errors"
+                                            class="text-danger form-error-label">
+                                            <div *ngIf="form.controls['password'].errors.required">
+                                                *Este campo es requerido
+                                            </div>
+                                            <!-- <div *ngIf="form.controls['password'].errors.minlength">
+                                                *La longitud mínima son ocho caracteres
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </form>
+                                <div 
+                                    
+                                    fxFlexAlign="right"  
+                                    [style.marginTop.px]="5">
+                                    <span (click)="passwordReset = !passwordReset" style="color:blue; cursor: pointer;" >
+                                        Iniciar sesi&oacute;n
+                                    </span>
+                                     
+                                    </div>
+                                <div [style.marginTop.px]="10" fxFlexAlign="end">
+                                    <button class="btn btn-sprime" style="width: 150px;" type="submit" (click)="doLogin()" [disabled]="!this.form.valid">
+                                        Guardar
                                     </button>
                                 </div>
                             </div>

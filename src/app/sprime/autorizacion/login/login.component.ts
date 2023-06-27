@@ -10,6 +10,7 @@ import { GeneralComponent } from 'src/app/comun/general-component/general.compon
 export class LoginComponent extends GeneralComponent implements OnInit {
   form!: FormGroup;
   public ver: boolean = false;
+  passwordReset: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
