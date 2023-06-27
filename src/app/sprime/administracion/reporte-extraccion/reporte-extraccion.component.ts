@@ -18,11 +18,10 @@ export class ReporteExtraccionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.cars$ = this.http.get<any[]>("assets/json/car.json").pipe(
-    map((res: JsonArray) => DeserializeArray(res, Car)),
-    tap(res => console.log(res))
-  );
-        
+    /* this.cars$ = this.http.get<any[]>("assets/json/car.json").pipe(
+      map((res: JsonArray) => DeserializeArray(res, Car)),
+      tap(res => console.log(res))
+    ); */ 
   }
 
 }

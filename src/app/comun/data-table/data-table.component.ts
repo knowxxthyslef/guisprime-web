@@ -22,6 +22,7 @@ export class DataTableComponent implements OnInit {
   
   @Input() showTitle: boolean = true;
   @Input() set data(values: any[]) {
+    console.log(this.data);
     if (values && values.length > 0) {
       this._data = cloneDeep(values);
       this._tableModel = this._data[0][tableSymbol];

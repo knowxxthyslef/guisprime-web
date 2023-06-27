@@ -1,20 +1,33 @@
-<div style="width:100%!important;">
-    <div *ngIf="showTitle" style="background-color: #d2eaef; min-height: 40px; border-radius: 4px 4px 0px 0px; margin-top: 10px; border-left: solid 6px #78c1ce; color: #121212; font-size: 16px; font-weight: 600!important;" fxLayout="row" fxLayoutAlign="start center">
-        <span [style.marginLeft.px]="10"> Reporte de todos de enero del 2022, generado el 20 de Febrero del 2023 a las 14:00</span>
-    </div>
-    <table mat-table  [dataSource]="data" matSort (matSortChange)="sortData($event)" style="table-layout: fixed; width: 100%; display: table; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;">
-        <ng-container [matColumnDef]="column.key" *ngFor="let column of columns">
-            <ng-container *ngIf="column.canSort; else noSort">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header="{{ column.key }}">
-                    {{ column.key }}
-                </th>
-            </ng-container>
-            <ng-template #noSort>
-              <th mat-header-cell *matHeaderCellDef>{{ column.key }}</th>
-            </ng-template>
-            <td mat-cell *matCellDef="let element">{{ element[column.key] }}</td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns" style="border: solid 1px #f5f5f5; border-bottom: solid 6px #e9f1f3; background-color: #f5f5f5;"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns" style=" border: solid 1px #d6d6d6;"></tr>
-    </table>
+<div *ngIf="showTitle" style="background-color: #d2eaef; min-height: 40px; border-radius: 4px 4px 0px 0px; margin-top: 10px; border-left: solid 6px #78c1ce; color: #121212; font-size: 16px; font-weight: 600!important;" fxLayout="row" fxLayoutAlign="start center">
+    <span [style.margin.px]="10"> Reporte de todos de enero del 2022, generado el 20 de Febrero del 2023 a las 14:00</span>
 </div>
+<table mat-table *ngIf="data?.length > 0" [dataSource]="data" matSort (matSortChange)="sortData($event)" style="table-layout: fixed; width: 100%; display: table; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;">
+    <ng-container [matColumnDef]="column.key" *ngFor="let column of columns">
+        <ng-container *ngIf="column.canSort; else noSort">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header="{{ column.key }}">
+                {{ column.key }}
+            </th>
+        </ng-container>
+        <ng-template #noSort>
+            <th mat-header-cell *matHeaderCellDef>{{ column.key }}</th>
+        </ng-template>
+        <td mat-cell *matCellDef="let element">{{ element[column.key] }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" style="border: solid 1px #f5f5f5; border-bottom: solid 6px #e9f1f3; background-color: #f5f5f5;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" style=" border: solid 1px #d6d6d6;"></tr>
+</table>
+<ng-container *ngIf="data?.length == 0">
+    <div style=" width:100%; min-height: 511px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;">
+        <div fxLayout="row" fxLayoutAlign="center stretch" style="width: 100%; background-color: pink; min-height: 511px;"  [style.marginBottom.px]="10">
+            <div fxFlex="50" fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="10px">
+                <div fxFlexAlign="center" fxLayout="row" fxLayoutAlign="center center" class="no-data"
+                style="background-color: blue; width: 100%; min-height: 80px; width: 80px;"></div>
+                <div fxFlexAlign="center" style="color: #a6a6a6; font-size: 16px; font-weight: 500; text-align: justify;">
+                    <span>
+                        Sin datos por mostrar, selecciona un mes y año para realizar una búsqueda.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
