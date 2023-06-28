@@ -55,13 +55,14 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div  fxFlexAlign="right"  [style.marginTop.px]="5">
-                                    <a (click)="resetPass()">
-                                        Olvide mi contraseña
-                                    </a>  
-                                </div>
+
                                 <div [style.marginTop.px]="10" fxFlexAlign="end">
-                                    <button class="btn btn-sprime" style="width: 150px;" type="submit" (click)="doLogin()" [disabled]="!this.form.valid">
+                                    <a routerLinkActive="active" 
+                                    [routerLink]="['/','login', 
+                                    { outlets: { 'base': ['resetPassword'] } }]">
+                                        Olvide mi contraseña
+                                    </a> 
+                                    <button class="btn btn-sprime" style="width: 150px; margin-left: 20px;" type="submit" (click)="doLogin()" [disabled]="!this.form.valid">
                                         Iniciar sesión
                                     </button>
                                 </div>
