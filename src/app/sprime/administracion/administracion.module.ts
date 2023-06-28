@@ -15,6 +15,7 @@ import { GenerarArchivosComponent } from './generar-archivos/generar-archivos.co
 import { MainTitleModule } from 'src/app/comun/main-title';
 import { ConfirmDialogModule } from 'src/app/comun/confirm-dialog';
 import { DataTableModule } from 'src/app/comun/data-table';
+import { SummaryColoredCardModule } from 'src/app/comun/summary-colored-card';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { DataTableModule } from 'src/app/comun/data-table';
     ComunModule,
     AdministracionRoutingModule,
     ButtonMenuModule,
+    SummaryColoredCardModule,
     ConfirmDialogModule,
     MainTitleModule,
     DataTableModule,

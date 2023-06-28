@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
 
 @Component({
@@ -17,7 +17,6 @@ export class LoginComponent extends GeneralComponent implements OnInit {
     super();
   }
 
-  public curpPattern = "[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]";
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       curp:['', [Validators.required, 
@@ -38,8 +37,10 @@ export class LoginComponent extends GeneralComponent implements OnInit {
     }
   }
 
+
   doLogin(){
     /* this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados'); */
     this._router.navigate(['home']);
   }
+
 }

@@ -1,5 +1,26 @@
 <app-header></app-header>
 <app-main-title [title]="{title: 'Reporte de extracción de patrones sin trabajadores', salir: false, url: 'home'}"></app-main-title>
-<div style="width: calc(100% - 60px); min-height: calc(100vh - 297px);" fxLayout="row" fxLayoutAlign="center stretch" [style.marginLeft.px]="30" [style.marginRight.px]="30">
+<div style="width: calc(100% - 60px); min-height: calc(100vh - 297px);" fxLayout="column" fxLayoutAlign="center stretch" [style.marginLeft.px]="30" [style.marginRight.px]="30">
     <app-data-table [data]="cars$ | async" style="width:100%!important;"></app-data-table>
+
+    <div fxLayout="row" >
+        <app-summary-colored-card [button]="cifraEntidades" fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-summary-colored-card>
+        <div fxFlex="2" >
+        </div>
+        <app-summary-colored-card [button]="cifraSubDelegaciones" fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-summary-colored-card>
+        <div fxFlex="2">
+        </div>
+        <app-summary-colored-card [button]="cifraDesconcentradas" fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-summary-colored-card>
+    </div>
+    <div fxLayout="row" [style.marginTop.px]="10" [style.marginBottom.px]="10">
+        <div fxFlex="90">
+        </div>
+        <div fxFlex="10" >
+            <button class="btn btn-sprime" style="width: 150px;"  >
+                <i class="bi bi-download"></i>
+                Generar PDF
+            </button>
+        </div>
+    </div>
+    
 </div>

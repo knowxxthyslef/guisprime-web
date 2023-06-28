@@ -1,0 +1,35 @@
+<app-header></app-header>
+<app-main-title [title]="{title: 'Administración de usuarios', url: null}"></app-main-title>
+<div style="width: 100%; overflow: auto;" fxLayout="column" fxLayoutAlign="center stretch">
+    <alert></alert>
+    <div fxFlex="90" fxFlex.lg="90" fxFlex.xs="90" fxLayout="row" fxLayoutAlign="start stretch">
+        <div fxFlex="40" fxFlex.lg="40" fxFlex.xs="40" fxLayoutAlign="flex-start">
+            <form [formGroup]="form" [style.marginLeft.px]="30" style="width: 100%">
+                <div class="form-group" [style.marginTop.px]="10">
+                    <label class="control-label" style="font-size: 14px;">CURP de usuario*:</label>
+                    <input type="text" class="form-control" formControlName="curp" placeholder="Ingresar CURP" 
+                    maxlength="18" autocomplete="off" oninput="this.value = this.value.toUpperCase()"
+                    style="font-size: 14px;" (keypress)="onlyalphaAndNumbers($event);" appTrim>
+                    <div *ngIf="form.controls['curp'].touched && form.controls['curp'].errors"
+                        class="text-danger form-error-label">
+                        <div *ngIf="form.controls['curp'].errors.required">
+                            *Este campo es requerido
+                        </div>
+                        <div *ngIf="form.controls['curp'].errors.pattern">
+                            *CURP inválido
+                        </div>
+                    </div>
+                </div>    
+            </form>
+        </div>
+        <div fxFlex="50" fxFlex.lg="50" fxFlex.xs="50" fxLayoutAlign="flex-start">
+            <div [style.marginTop.px]="36" [style.marginLeft.px]="20">
+                <button type="submit" class="btn btn-sprime" style="width: 150px;" [disabled]="!this.form.valid">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<app-registro-no-localizado></app-registro-no-localizado>-->
+<app-registro-existente-usuario></app-registro-existente-usuario>

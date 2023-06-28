@@ -1,30 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { ROLE } from 'src/app/comun/helper/role.helper';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { HomeAdministracionUsuarioComponent } from './home-administracion-usuario.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    component: HomeAdministracionUsuarioComponent,
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
         ROLE.ADMINISTRADOR
       ]
     }
-  }
-  ,{
-    path: 'resetPassword',
-    component: ResetPasswordComponent
-  }
-  
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AutorizacionRoutingModule { }
+export class HomeAdministracionUsuarioRoutingModule { }

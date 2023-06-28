@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <div fxLayout="column" fxLayoutAlign="center stretch">
+        <div fxLayout="column" fxLayoutAlign="center stretch" >
             <div fxLayout="row" fxLayoutAlign="center stretch"  [style.marginBottom.px]="30">
                 <div fxFlex="65" fxFlex.xl="55"  fxFlex.lg="60" fxFlex.xs="70" fxLayout="column" fxLayoutAlign="space-around stretch">
                     <div style="box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px; 
@@ -55,8 +55,14 @@
                                         </div>
                                     </div>
                                 </form>
+
                                 <div [style.marginTop.px]="10" fxFlexAlign="end">
-                                    <button class="btn btn-sprime" style="width: 150px;" type="submit" (click)="doLogin()" [disabled]="!this.form.valid">
+                                    <a routerLinkActive="active" 
+                                    [routerLink]="['/','login', 
+                                    { outlets: { 'base': ['resetPassword'] } }]">
+                                        Olvide mi contraseña
+                                    </a> 
+                                    <button class="btn btn-sprime" style="width: 150px; margin-left: 20px;" type="submit" (click)="doLogin()" [disabled]="!this.form.valid">
                                         Iniciar sesión
                                     </button>
                                 </div>
