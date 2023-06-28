@@ -9,10 +9,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 @NgModule({
   declarations: [
     LoginComponent,
-<<<<<<< HEAD
     ResetPasswordComponent
-=======
->>>>>>> 6f524a6c82819681ba45f6c9f7530295c67d6e21
   ],
   imports: [
     CommonModule,
