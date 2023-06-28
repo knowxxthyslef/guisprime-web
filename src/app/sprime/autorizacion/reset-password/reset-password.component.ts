@@ -37,9 +37,4 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
   }
 
 
-  doLogin(){
-    /* this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados'); */
-    this._router.navigate(['home']);
-  }
-
 }

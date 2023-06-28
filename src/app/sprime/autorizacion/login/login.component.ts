@@ -43,8 +43,4 @@ export class LoginComponent extends GeneralComponent implements OnInit {
     this._router.navigate(['home']);
   }
 
-  resetPass(){
-    /* this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados'); */
-    this._router.navigate(['/', 'login', { outlets: { 'base' : "resetPassword" } }]);
-  }
 }
