@@ -1,6 +1,6 @@
 
 export const NAV = {
    login: 'login',
-   home: 'home',
+   home: 'home'
 };
 

@@ -14,14 +14,14 @@ export const appRoutes: Routes = [
     path: NAV.login,
     pathMatch: 'prefix',
     component: BaseComponent,
-    /* canActivateChild: [RolAuthorizacionGuard], */
     children:[
       {
         path:'',
         loadChildren:() => import('src/app/sprime/autorizacion/autorizacion.module').then(m=>m.AutorizacionModule),
         outlet:'base'
-      },
+      }
     ]
+    /* canActivateChild: [RolAuthorizacionGuard], */
   },
   {
     path: NAV.home,

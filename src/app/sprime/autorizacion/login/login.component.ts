@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
 
 @Component({
@@ -10,7 +10,6 @@ import { GeneralComponent } from 'src/app/comun/general-component/general.compon
 export class LoginComponent extends GeneralComponent implements OnInit {
   form!: FormGroup;
   public ver: boolean = false;
-  passwordReset: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,8 +38,14 @@ export class LoginComponent extends GeneralComponent implements OnInit {
     }
   }
 
+
   doLogin(){
     /* this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados'); */
     this._router.navigate(['home']);
+  }
+
+  resetPass(){
+    /* this._alertsServices.success('<b>Alerta</b> No se pudo consultar el servicio de asegurados'); */
+    this._router.navigate(['/', 'login', { outlets: { 'base' : "resetPassword" } }]);
   }
 }

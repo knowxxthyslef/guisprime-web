@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ROLE } from 'src/app/comun/helper/role.helper';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,12 @@ const routes: Routes = [
         ROLE.ADMINISTRADOR
       ]
     }
-  },
+  }
+  ,{
+    path: 'resetPassword',
+    component: ResetPasswordComponent
+  }
+  
 ];
 
 @NgModule({
