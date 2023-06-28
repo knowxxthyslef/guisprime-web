@@ -24,6 +24,19 @@ export const appRoutes: Routes = [
     ]
   },
   {
+    path: NAV.administracion,
+    pathMatch: 'prefix',
+    component: BaseComponent,
+    /* canActivateChild: [RolAuthorizacionGuard], */
+    children:[
+      {
+        path:'',
+        loadChildren:() => import('src/app/sprime/autorizacion/usuarios/home-administracion-usuario/home-administracion-usuario.module').then(m=>m.HomeAdministradorUsuarioModule),
+        outlet:'base'
+      },
+    ]
+  },
+  {
     path: NAV.home,
     pathMatch: 'prefix',
     component: BaseComponent,

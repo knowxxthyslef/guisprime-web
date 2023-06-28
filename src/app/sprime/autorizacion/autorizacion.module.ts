@@ -7,7 +7,7 @@ import { ComunModule } from 'src/app/comun/comun.module';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
