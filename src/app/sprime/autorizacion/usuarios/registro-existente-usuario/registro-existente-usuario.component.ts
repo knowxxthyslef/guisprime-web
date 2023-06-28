@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroExistenteUsuarioComponent implements OnInit {
 
+  public btnBaja = {
+    buttonIcon: true,
+    buttonUrl: 'atomo_icono_usuario.svg',
+    buttonClass: 'btn-administrador',
+    buttonText: 'Baja usuario'
+  }
+  public btnPassword = {
+    buttonIcon: true,
+    buttonUrl: 'atomo_icono_contraseña.svg',
+    buttonClass: 'btn-administrador',
+    buttonText: 'Baja usuario'
+  }
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  recibiRespuesta($event) {
+    console.log($event);
   }
 
 }
