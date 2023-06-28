@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="end space-between" [style.marginTop.px]="20" [style.marginBottom.px]="20"
+[ngStyle]="{'background': button?.secondaryColor }"
+style="border-radius: 10px; min-height: 60px; box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;" >
+    <div fxFlex="98.5" fxLayout="row" fxLayoutAlign="space-around center" 
+    [ngStyle]="{'background-color': button?.color }"
+    style="border-radius: 10px; border: 1px solid #eeeeee;">
+        <div fxFlex="5" fxHide fxShow.gt-xs fxLayout="row" fxLayoutAlign="center" >
+        </div>
+        <div fxFlex="75" fxHide fxShow.gt-xs fxLayout="row" fxLayoutAlign="start" >
+            <div [innerHTML]="button?.description | safe: 'html'" style="font-size: 18px; font-weight: 600; line-height: 19px;"></div>
+        </div>
+
+        <div fxFlex="20" fxHide fxShow.gt-xs fxLayout="row" fxLayoutAlign="center" >
+            <div [innerHTML]="button?.numericValue" style="font-size: 18px; font-weight: 600; line-height: 19px;"></div>
+        </div>
+    </div>
+</div>
