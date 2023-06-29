@@ -3,7 +3,12 @@ import { Page } from '../dataObject/page';
 
 @Component({
   selector: 'app-pager',
-  templateUrl: './pager.component.html'
+  templateUrl: './pager.component.html',
+  styles: [
+    `
+    
+    `
+  ]
 })
 export class PagerComponent implements OnInit {
 
