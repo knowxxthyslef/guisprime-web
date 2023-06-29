@@ -2,19 +2,19 @@
 [ngStyle]="{'background': button?.color, 'border-left' : 'solid 6px ' + button?.secondaryColor}"
 style="border-radius: 6px; min-height: 60px; box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px; ">
         <div fxFlex="80" [style.marginLeft.px]="10">
-            <div [innerHTML]="button?.description | safe: 'html'" style="font-size: 18px; font-weight: 600; line-height: 19px;"></div>
+            <div [innerHTML]="button?.description | safe: 'html'" style="font-size: 16px; font-weight: 600; line-height: 19px;"></div>
         </div>
         <div fxFlex="20" [style.marginRight.px]="20">
-            <div [innerHTML]="button?.numericValue" style="font-size: 18px; font-weight: 600; line-height: 19px; text-align: right;"></div>
+            <div [innerHTML]="button?.numericValue" style="font-size: 16px; font-weight: 600; line-height: 19px; text-align: right;"></div>
         </div>
 </div>
 <div fxLayout="column" fxHide fxShow.xs fxLayoutAlign="center stretch" [style.marginTop.px]="20" [style.marginBottom.px]="20"
 [ngStyle]="{'background': button?.color, 'border-left' : 'solid 6px ' + button?.secondaryColor}"
 style="border-radius: 6px; min-height: 60px; box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px; ">
         <div [style.marginLeft.px]="10" [style.marginTop.px]="10">
-            <div [innerHTML]="button?.description | safe: 'html'" style="font-size: 18px; font-weight: 600; line-height: 19px;"></div>
+            <div [innerHTML]="button?.description | safe: 'html'" style="font-size: 16px; font-weight: 600; line-height: 19px;"></div>
         </div>
         <div [style.marginLeft.px]="10" [style.marginTop.px]="5" [style.marginBottom.px]="10">
-            <div [innerHTML]="button?.numericValue" style="font-size: 18px; font-weight: 600; line-height: 19px;"></div>
+            <div [innerHTML]="button?.numericValue" style="font-size: 16px; font-weight: 600; line-height: 19px;"></div>
         </div>
 </div>
