@@ -6,6 +6,26 @@ import { Page } from '../dataObject/page';
   templateUrl: './pager.component.html',
   styles: [
     `
+    .pagination>.active>a:hover {
+      color: white!important;
+    }
+
+    .pagination>li>a:hover {
+      color: black!important;
+    }
+
+    .pagination>li>a {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .bi-chevron-left {
+      -webkit-text-stroke: 1px;
+    }
+
+    .bi-chevron-right {
+      -webkit-text-stroke: 1px;
+    }
     
     `
   ]

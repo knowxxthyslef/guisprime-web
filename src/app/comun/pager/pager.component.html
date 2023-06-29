@@ -1,10 +1,25 @@
 <div style="text-align: center; padding: 0; margin: 0;"><ul class="pagination middle">
   <li *ngIf="pageModel.currentPage === 1" class="disabled" >    
-    <a style=" border: none!important;  background-color: unset!important;">&laquo;</a>
+    <a style=" border: none!important;  background-color: unset!important;">
+      <i class="bi bi-chevron-left"></i>
+    </a>
   </li>
-  <li *ngIf="pageModel.currentPage !== 1" >    
-    <a  style=" border: none!important;  background-color: unset!important; cursor: pointer;" (click)="page(1)">&laquo;</a>
+  <li *ngIf="pageModel.currentPage > 1" >    
+    <a  style=" border: none!important;  background-color: unset!important; cursor: pointer;" (click)="page(1)">
+      <i class="bi bi-chevron-left"></i>
+    </a>
   </li>
+
+  <ng-container *ngIf="pageModel.currentPage !== 1 && pageModel.currentPage > 3 ">
+    <li style="width: 30px; height: 30px; background-color: #FFFFFF; border-radius: 50%; cursor: pointer;">
+      <a  (click)="page(1)" style="border: none!important; background-color: unset!important; min-width: 35px!important; 
+      height: 35px!important; margin-left: 3px!important; margin-right: 3px!important; cursor: pointer;">{{1}}</a>
+    </li>  
+    <li style="width: 30px; height: 30px; background-color: #FFFFFF; cursor: default;">    
+      <a style="border: none!important; background-color: unset!important; min-width: 20px!important; 
+      height: 35px!important; margin-left: 0px!important; margin-right: 0px!important;">...</a>
+    </li>    
+  </ng-container>
   
   <ng-template ngFor let-item [ngForOf]="pageModel.pages" >
     <li *ngIf="item === pageModel.currentPage"  [ngClass]="{'active': true}">    
@@ -16,12 +31,27 @@
       height: 35px!important; margin-left: 3px!important; margin-right: 3px!important; cursor: pointer;">{{item}}</a>
     </li>
   </ng-template>
+
+  <ng-container *ngIf="pageModel.maxPage !== pageModel.totalOfPages">
+    <li style="width: 30px; height: 30px; background-color: #FFFFFF; cursor: default;">    
+      <a style="border: none!important; background-color: unset!important; min-width: 20px!important; 
+      height: 35px!important; margin-left: 0px!important; margin-right: 0px!important;">...</a>
+    </li>  
+    <li style="width: 30px; height: 30px; background-color: #FFFFFF; border-radius: 50%; cursor: pointer;">
+      <a  (click)="page(pageModel.totalOfPages)" style="border: none!important; background-color: unset!important; min-width: 35px!important; 
+      height: 35px!important; margin-left: 3px!important; margin-right: 3px!important; cursor: pointer;">{{pageModel.totalOfPages}}</a>
+    </li>    
+  </ng-container>
   
   <li *ngIf="pageModel.maxPage === pageModel.totalOfPages" class="disabled" >    
-    <a style=" border: none!important;  background-color: unset!important;">&raquo;</a>
+    <a style=" border: none!important;  background-color: unset!important;">
+      <i class="bi bi-chevron-right"></i>
+    </a>
   </li>
   <li *ngIf="pageModel.maxPage !== pageModel.totalOfPages" >    
-    <a style=" border: none!important;  background-color: unset!important; cursor: pointer;" (click)="page(pageModel.totalOfPages)" >&raquo;</a>
+    <a style=" border: none!important;  background-color: unset!important; cursor: pointer;" (click)="page(pageModel.totalOfPages)" >
+      <i class="bi bi-chevron-right"></i>
+    </a>
   </li>
   </ul>  
 </div>

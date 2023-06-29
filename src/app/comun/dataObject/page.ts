@@ -41,11 +41,11 @@ export class Page<T> {
       this.totalOfRecords = this.totalElements;
       this.totalOfPages = this.totalPages;
 
-      this.minPage = this.currentPage - 2;
+      this.minPage = this.currentPage - 1;
       if (this.minPage < 1) {
         this.minPage = 1;
       }
-      this.maxPage = this.currentPage + 2;
+      this.maxPage = this.currentPage + 1;
       if (this.maxPage > this.totalOfPages) {
         this.maxPage = this.totalOfPages;
       }

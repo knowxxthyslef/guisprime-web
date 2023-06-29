@@ -13,7 +13,7 @@
         <app-summary-colored-card [button]="cifraDesconcentradas" fxFlex="0 1 calc(33.3%)" fxFlex.sm="calc(33% - 10px)" fxFlex.xs="calc(100%)"></app-summary-colored-card>
     </div>
     <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="center center" [style.marginTop.px]="10" [style.marginBottom.px]="10" fxLayoutGap="20px">
-        <div fxHide fxShow.gt-xs fxFlex="20" fxFlex.xl="15" fxFlex.lg="20" fxFlex.md="25" fxFlex.sm="35" *ngIf="pageData?.content?.length > 0">
+        <div fxHide fxShow.gt-xs fxFlex="25" fxFlex.xl="20" fxFlex.lg="30" fxFlex.md="40" fxFlex.sm="55" *ngIf="pageData?.content?.length > 0">
             <app-pager [pageModel]="pageData" (paged)="changePage($event)"></app-pager>
         </div>
         <div fxFlex="20" fxFlex.xl="10" fxFlex.lg="15" fxFlex.md="20" fxFlex.sm="30" fxFlex.xs="80">
