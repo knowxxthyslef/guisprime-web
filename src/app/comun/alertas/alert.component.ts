@@ -4,7 +4,39 @@ import { Subscription } from 'rxjs';
 import { Alert, AlertType } from './alert.model';
 import { AlertService } from './alert.service';
 
-@Component({ selector: 'alert', templateUrl: 'alert.component.html' })
+@Component({ selector: 'alert', templateUrl: 'alert.component.html', 
+    styles: [
+        `
+        .alert-error-icon {
+            background-image: url("../../../assets/img/alert-error.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .alert-success-icon {
+            background-image: url("../../../assets/img/alert-success.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .alert-warn-icon {
+            background-image: url("../../../assets/img/alert-warn.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .alert-info-icon {
+            background-image: url("../../../assets/img/alert-error.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        `
+    ] 
+})
 export class AlertComponent implements OnInit, OnDestroy {
     @Input() id = 'default-alert';
     @Input() fade = true;

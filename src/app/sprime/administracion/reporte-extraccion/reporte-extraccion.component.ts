@@ -107,4 +107,8 @@ export class ReporteExtraccionComponent extends GeneralComponent implements OnIn
 
   }
 
+  sendAlert(){
+    this._alertsServices.info('<b>Hubo un error en la descarga del documento, inténtalo de nuevo.</b>');
+  }
+
 }

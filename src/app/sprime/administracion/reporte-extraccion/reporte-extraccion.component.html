@@ -1,4 +1,5 @@
 <app-header></app-header>
+<alert></alert>
 <app-main-title [title]="{title: 'Reporte de extracción de patrones sin trabajadores', salir: false, url: 'home'}"></app-main-title>
 <div style="width: calc(100% - 60px); min-height: calc(100vh - 297px);" fxLayout="column" fxLayoutAlign="center stretch" [style.marginLeft.px]="30" [style.marginRight.px]="30">
     <app-data-table [data]="data" [callbackFunctionOnPaged]="sortPage" style="width:100%!important;"></app-data-table>
@@ -17,7 +18,7 @@
             <app-pager [pageModel]="pageData" (paged)="changePage($event)"></app-pager>
         </div>
         <div fxFlex="20" fxFlex.xl="10" fxFlex.lg="15" fxFlex.md="20" fxFlex.sm="30" fxFlex.xs="80">
-            <button class="btn btn-sprime" style="width: 100%;"  >
+            <button class="btn btn-sprime" style="width: 100%;"  (click)="sendAlert()">
                 <i class="bi bi-download"></i>
                 Generar PDF
             </button>
