@@ -37,6 +37,19 @@ export const appRoutes: Routes = [
     ]
   },
   {
+    path: NAV.registroUsuario,
+    pathMatch: 'prefix',
+    component: BaseComponent,
+    /* canActivateChild: [RolAuthorizacionGuard], */
+    children:[
+      {
+        path:'',
+        loadChildren:() => import('src/app/sprime/autorizacion/usuarios/registro-nuevo-usuario/registro-nuevo-usuario.module').then(m=>m.RegistroNuevoUsuarioModule),
+        outlet:'base'
+      },
+    ]
+  },
+  {
     path: NAV.home,
     pathMatch: 'prefix',
     component: BaseComponent,

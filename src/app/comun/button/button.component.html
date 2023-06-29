@@ -1,11 +1,10 @@
-<button (click)="evento()" type="submit" [disabled]="disabled" [ngClass]="this.button?.buttonClass" [style.marginRight.px]="20">
-    <div style="width: 100%; overflow: auto;" fxLayoutAlign="center stretch">
-        <div *ngIf="this.button?.buttonIcon" fxFlex="20" fxLayout="row" fxLayoutAlign="end center">
+<button (click)="evento()" type="submit" [disabled]="disabled" class="btn" [ngClass]="this.button?.buttonClass" [style.marginRight.px]="20">
+    <div style="width: 100%; overflow: auto; margin: 0px;" fxLayoutAlign="center stretch">
+        <div *ngIf="this.button?.buttonIcon" [style.marginRight.px]="10" fxFlex="15" fxLayout="row" fxLayoutAlign="end center">
             <img [src]="'assets/img/' + this.button?.buttonUrl" [alt]="this.button?.buttonClass"/>
         </div>
-        <div fxFlex="50" [style.marginLeft.px]="10" fxLayout="row" fxLayoutAlign="start center">
+        <div fxFlex="100" fxLayout="row" [fxLayoutAlign]="this.button?.buttonAling">
             {{this.button?.buttonText}}
         </div>
     </div>
 </button>
-<br>

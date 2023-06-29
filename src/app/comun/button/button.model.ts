@@ -3,6 +3,8 @@ export class Button {
     buttonUrl?: string;
     buttonClass?: string;
     buttonText?: string;
+    buttonAling?: string;
+    accion?: string;
 
     constructor(init?:Partial<Button>) {
         Object.assign(this, init);

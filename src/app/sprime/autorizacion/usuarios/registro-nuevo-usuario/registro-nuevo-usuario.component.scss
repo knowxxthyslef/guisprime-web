@@ -1,0 +1,60 @@
+.contenido-formulario {
+    width: 100%;
+    padding: 35px;
+}
+
+.card {
+    width: 100%;
+    padding: 30px;
+}
+
+.contenido-item {
+    min-height: calc(100vh - 350px);
+    border: 1px solid;
+}
+
+.flex-item {
+    padding: 10px;
+}
+
+.textTitulo {
+    height: 17px;
+    flex-grow: 0;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121212;
+}
+
+.textDescripcion {
+    width: 190px;
+    height: 34px;
+    flex-grow: 0;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121212;
+  }
+
+  .label {
+    flex-grow: 0;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #121212;
+  }

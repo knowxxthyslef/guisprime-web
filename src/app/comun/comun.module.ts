@@ -8,7 +8,6 @@ import { HeaderModule } from './header';
 import { SafePipe } from './pipe/safe.pipe';
 import { MaskPipe } from './pipe/mask.pipe';
 
-
 @NgModule({
   declarations: [TrimDirective, SafePipe, MaskPipe],
   imports: [

@@ -23,13 +23,18 @@
             </form>
         </div>
         <div fxFlex="50" fxFlex.lg="50" fxFlex.xs="50" fxLayoutAlign="flex-start">
-            <div [style.marginTop.px]="36" [style.marginLeft.px]="20">
-                <button type="submit" class="btn btn-sprime" style="width: 150px;" [disabled]="!this.form.valid">
+            <div [style.marginTop.px]="36" [style.marginLeft.px]="20" (click)="busqueda()">
+                <button type="submit" class="btn btn-sprime" style="width: 150px;">
                     Buscar
                 </button>
             </div>
         </div>
     </div>
 </div>
-<!--<app-registro-no-localizado></app-registro-no-localizado>-->
-<app-registro-existente-usuario></app-registro-existente-usuario>
+<ng-container *ngIf="!busquedaCurp">
+    <app-registro-no-localizado></app-registro-no-localizado>
+</ng-container>
+<ng-container *ngIf="busquedaCurp">
+    <app-registro-existente-usuario></app-registro-existente-usuario>
+</ng-container>
+
