@@ -2,6 +2,7 @@
 export const NAV = {
    login: 'login',
    home: 'home',
-   administracion: 'administracion'
+   administracion: 'administracion',
+   registroUsuario: 'usuario',
 };
 

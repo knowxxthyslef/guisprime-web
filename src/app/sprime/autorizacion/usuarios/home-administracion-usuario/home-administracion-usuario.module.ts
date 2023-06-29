@@ -7,6 +7,7 @@ import { MainTitleModule } from 'src/app/comun/main-title';
 import { RegistroExistenteUsuarioModule } from '../registro-existente-usuario/registro-existente-usuario.module';
 import { RegistroNoLocalizadoModule } from '../registro-no-localizado/registro-no-localizado.module';
 import { RegistroNuevoUsuarioModule } from '../registro-nuevo-usuario/registro-nuevo-usuario.module';
+import { ConfirmDialogUsuarioPerfilModule } from 'src/app/comun/confirm-dialog-usuario-perfil';
 
 
 @NgModule({

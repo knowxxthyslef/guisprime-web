@@ -22,7 +22,7 @@ export class ButtonComponent implements OnInit, OnDestroy {
   }
 
   evento() {
-    this.valueResponse.emit(null);
+    this.valueResponse.emit( this.button.accion);
   }
 
   ngOnDestroy(): void {

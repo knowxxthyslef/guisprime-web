@@ -1,0 +1,73 @@
+<div fxLayout="row" fxLayoutAlign="end center">
+    <button (click)="closeDialog();" class="dialog-close-button" mat-flat-button [disableRipple]="true" style="min-width: unset!important; width: 32px; padding-left: 0;">
+        <mat-icon style="font-size: #969eab!important; opacity: .8;">
+            close
+        </mat-icon>
+    </button>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center">
+    <span class="bootstrap-icons form-control-icon" aria-hidden="true" style="font-size: 35px!important;">
+        <i class="bi bi-exclamation-circle" style="color: #31781f!important;"></i>
+    </span>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" [style.marginRight.px]="30" [style.marginLeft.px]="30" style="border-bottom: 1px solid #eeeeee; height: 60px; font-size: 18px; color: #121212; font-weight: 600; max-width: 418px!important; text-align: center;"> 
+    Cambio de perfil
+</div>
+<div fxLayout="row" fxLayoutAlign="center center" [style.marginTop.px]="25"  [style.marginBottom.px]="25" [style.marginRight.px]="30" [style.marginLeft.px]="30">
+    <div style="font-size: 16px; font-weight: 500; line-height: normal; color: #121212; max-width: 418px!important; text-align: center;">
+        Selecciona el nuevo perfil
+    </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+    <form [formGroup]="form">
+        <div class="flex-container">
+            <div class="flex-item">
+                <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Perfil*:</label>
+                    <select class="form-control" formControlName="perfil">
+                        <option value="">Seleccionar perfil</option>
+                        <option value="1">OADD</option>
+                    </select>
+                    <div *ngIf="form.controls['perfil'].touched && form.controls['perfil'].errors"
+                        class="text-danger form-error-label">
+                        <div *ngIf="form.controls['perfil'].errors.required">
+                            *Este campo es requerido
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="flex-item">
+                <div class="form-group">
+                    <label class="control-label" style="font-size: 14px;">Motivo del cambio de perfil*:</label>
+                    <textarea
+                        rows="3" 
+                        class="form-control" formControlName="motivos" 
+                        placeholder="Ingresar motivo del cambio de perfil" 
+                        maxlength="180" autocomplete="off" style="font-size: 14px;">
+                    </textarea>
+                    <div *ngIf="form.controls['motivos'].touched && form.controls['motivos'].errors"
+                        class="text-danger form-error-label">
+                        <div *ngIf="form.controls['motivos'].errors.required">
+                            *Este campo es requerido
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </form>
+</div>
+<div fxHide fxShow.gt-xs style="background-color: #f5f5f5; height: 79px; width: 478px!important; margin: 0; padding: 0;" fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="75" fxLayout="row" fxLayoutAlign="space-around center">
+        <div>
+            <button class="btn btn-sprime-secondary" style="width: 150px; font-size: 14px!important;" (click)="closeDialog()">
+                Cancelar
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-sprime" style="width: 150px; font-size: 14px!important;" (click)="confirmDialog()">
+                Guardar
+            </button>
+        </div>
+    </div>
+</div>
