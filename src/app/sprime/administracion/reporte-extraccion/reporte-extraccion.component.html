@@ -1,26 +1,26 @@
 <app-header></app-header>
 <app-main-title [title]="{title: 'Reporte de extracción de patrones sin trabajadores', salir: false, url: 'home'}"></app-main-title>
 <div style="width: calc(100% - 60px); min-height: calc(100vh - 297px);" fxLayout="column" fxLayoutAlign="center stretch" [style.marginLeft.px]="30" [style.marginRight.px]="30">
-    <app-data-table [data]="cars$ | async" style="width:100%!important;"></app-data-table>
-
-    <div fxLayout="row" >
-        <app-summary-colored-card [button]="cifraEntidades" fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-summary-colored-card>
-        <div fxFlex="2" >
+    <app-data-table [data]="data" [callbackFunctionOnPaged]="sortPage" style="width:100%!important;"></app-data-table>
+    <div fxLayout="row" fxHide fxShow.xs fxLayoutAlign="center center" [style.marginTop.px]="10" [style.marginBottom.px]="10" *ngIf="pageData?.content?.length > 0">
+        <div fxFlex="70" style="background-color: aqua;">
+            <app-pager [pageModel]="pageData" (paged)="changePage($event)"></app-pager>
         </div>
-        <app-summary-colored-card [button]="cifraSubDelegaciones" fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-summary-colored-card>
-        <div fxFlex="2">
-        </div>
-        <app-summary-colored-card [button]="cifraDesconcentradas" fxFlex="0 1 calc(50% - 50px)" fxFlex.lt-sm="100%"></app-summary-colored-card>
     </div>
-    <div fxLayout="row" [style.marginTop.px]="10" [style.marginBottom.px]="10">
-        <div fxFlex="90">
+    <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.sm="10px" fxLayoutGap.xs="0">
+        <app-summary-colored-card [button]="cifraEntidades" fxFlex="0 1 calc(33.3% - 50px)" fxFlex.sm="calc(33% - 10px)" fxFlex.xs="calc(100%)"></app-summary-colored-card>
+        <app-summary-colored-card [button]="cifraSubDelegaciones" fxFlex="0 1 calc(33.3% - 50px)" fxFlex.sm="calc(33% - 10px)" fxFlex.xs="calc(100%)"></app-summary-colored-card>
+        <app-summary-colored-card [button]="cifraDesconcentradas" fxFlex="0 1 calc(33.3%)" fxFlex.sm="calc(33% - 10px)" fxFlex.xs="calc(100%)"></app-summary-colored-card>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="center center" [style.marginTop.px]="10" [style.marginBottom.px]="10" fxLayoutGap="20px">
+        <div fxHide fxShow.gt-xs fxFlex="20" fxFlex.xl="15" fxFlex.lg="20" fxFlex.md="25" fxFlex.sm="35" *ngIf="pageData?.content?.length > 0" style="background-color: aqua;">
+            <app-pager [pageModel]="pageData" (paged)="changePage($event)"></app-pager>
         </div>
-        <div fxFlex="10" >
-            <button class="btn btn-sprime" style="width: 150px;"  >
+        <div fxFlex="20" fxFlex.xl="10" fxFlex.lg="15" fxFlex.md="20" fxFlex.sm="30" fxFlex.xs="80">
+            <button class="btn btn-sprime" style="width: 100%;"  >
                 <i class="bi bi-download"></i>
                 Generar PDF
             </button>
         </div>
     </div>
-    
 </div>

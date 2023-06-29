@@ -2,72 +2,96 @@
     "content":[
         {
             "id":221,
-            "idEmpresa": "124-oxxo",
-            "nombre":"Cadena Comercial OXXO, S.A. de C.V.",
-            "paquete":"Premuim",
-            "puntasActivas":129,
-            "idEstatus":1,
-            "estatus":"Nuevo",
-            "numeroUsuarios":"1/10",
-            "detalle":{
-
-            },
-            "favorito": true
+            "cveDelegacion": 1,
+            "desDelegacion":"Aguascalientes",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Aguascalientes",
+            "patronesSinTrabajadores": 200
         },
         {
             "id":221,
-            "idEmpresa": "124-oxxo",
-            "nombre":"Cadena Comercial OXXO, S.A. de C.V.",
-            "paquete":"Premuim",
-            "puntasActivas":129,
-            "idEstatus":1,
-            "estatus":"Nuevo",
-            "numeroUsuarios":"1/10",
-            "detalle":{
-
-            },
-            "favorito": false
+            "cveDelegacion": 1,
+            "desDelegacion":"Michoacan",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Morelia",
+            "patronesSinTrabajadores": 200
         },
         {
             "id":221,
-            "idEmpresa": "124-oxxo",
-            "nombre":"Cadena Comercial OXXO, S.A. de C.V.",
-            "paquete":"Premuim",
-            "puntasActivas":129,
-            "idEstatus":1,
-            "estatus":"Nuevo",
-            "numeroUsuarios":"1/10",
-            "detalle":{
-
-            },
-            "favorito": false
+            "cveDelegacion": 1,
+            "desDelegacion":"Baja California Sur",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "La Paz",
+            "patronesSinTrabajadores": 200
         },
         {
             "id":221,
-            "idEmpresa": "124-oxxo",
-            "nombre":"Cadena Comercial OXXO, S.A. de C.V.",
-            "paquete":"Premuim",
-            "puntasActivas":129,
-            "idEstatus":1,
-            "estatus":"Nuevo",
-            "numeroUsuarios":"1/10",
-            "detalle":{
-
-            },
-            "favorito": false
+            "cveDelegacion": 1,
+            "desDelegacion":"Jalisco",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Guadalajara",
+            "patronesSinTrabajadores": 200
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "desDelegacion":"Yucatán",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Mérida",
+            "patronesSinTrabajadores": 200
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "desDelegacion":"SInaloa",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Culiacán",
+            "patronesSinTrabajadores": 200
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "desDelegacion":"Chiapas",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Tuxtla Gutierrez",
+            "patronesSinTrabajadores": 200
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "desDelegacion":"Querétaro",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Santiago de Querétaro",
+            "patronesSinTrabajadores": 200
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "desDelegacion":"Oaxaca",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Oaxaca de Juárez",
+            "patronesSinTrabajadores": 200
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "desDelegacion":"Zacatecas",
+            "cveSubDelegacion":2,
+            "desSubDelegacion": "Zacatecas",
+            "patronesSinTrabajadores": 200
         }
     ],
     "last":false,
-    "totalPages":3,
-    "totalElements":13,
+    "totalPages":13,
+    "totalElements":128,
     "sort":{
         "sorted":false,
         "unsorted":true,
         "empty":true
     },
-    "numberOfElements":5,
+    "numberOfElements":10,
     "first":true,
-    "size":5,
+    "size":10,
     "number":0,
     "empty":false
 }

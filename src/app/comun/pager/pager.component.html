@@ -1,0 +1,27 @@
+<div style="text-align: center; padding: 0; margin: 0;"><ul class="pagination middle">
+  <li *ngIf="pageModel.currentPage === 1" class="disabled" >    
+    <a>&laquo;</a>
+  </li>
+  <li *ngIf="pageModel.currentPage !== 1" >    
+    <a (click)="page(1)">&laquo;</a>
+  </li>
+  
+  <ng-template ngFor let-item [ngForOf]="pageModel.pages" >
+    <li *ngIf="item === pageModel.currentPage"  [ngClass]="{'active': true}">    
+      <a style="border-radius: 50%! important; width: 35px!important; background-color: #691c32!important; border-color: #691c32!important;;
+      height: 35px!important; margin-left: 3px!important; margin-right: 3px!important;">{{item}}</a>
+    </li>
+    <li *ngIf="item !== pageModel.currentPage">    
+      <a  (click)="page(item)" style="border-radius: 50%! important; width: 35px!important; 
+      height: 35px!important; margin-left: 3px!important; margin-right: 3px!important;">{{item}}</a>
+    </li>
+  </ng-template>
+  
+  <li *ngIf="pageModel.maxPage === pageModel.totalOfPages" class="disabled" >    
+    <a>&raquo;</a>
+  </li>
+  <li *ngIf="pageModel.maxPage !== pageModel.totalOfPages" >    
+    <a (click)="page(pageModel.totalOfPages)" >&raquo;</a>
+  </li>
+  </ul>  
+</div>

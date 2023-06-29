@@ -13,7 +13,7 @@ import { tableSymbol } from './column';
 })
 export class DataTableComponent implements OnInit {
 
-  @Input() callbackFunctionOnPaged: (page: number) => void;
+  @Input() callbackFunctionOnPaged: (params: Sort) => void;
 
   private _data = [];
   private _originalData: any[] = [];
@@ -22,7 +22,6 @@ export class DataTableComponent implements OnInit {
   
   @Input() showTitle: boolean = true;
   @Input() set data(values: any[]) {
-    console.log(this.data);
     if (values && values.length > 0) {
       this._data = cloneDeep(values);
       this._tableModel = this._data[0][tableSymbol];
@@ -40,18 +39,6 @@ export class DataTableComponent implements OnInit {
 
   columns: ColumnModel[];
   displayedColumns: string[];
-
-  public filtradoBusqueda: string = null;
- /*  public displayedColumns: Array<TableField> =  [
-    { field: 'materia', header: 'Materia' },
-    { field: 'expediente', header: 'Expediente' },
-    { field: 'ooad', header: 'OOAD' },
-    { field: 'abogadoResponsable', header: 'Abogado Responsable' },
-    { field: 'nombreRazonSocial', header: 'Actor/Razón Social' },
-    { field: 'afiliacion', header: 'Afiliación' },
-    { field: 'matricula', header: 'Matrícula' },
-  ]; */
-  
   public des: boolean = false;
   public dataSource: MatTableDataSource<any>;
   
@@ -61,41 +48,27 @@ export class DataTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  shortTable(BusquedaName: string) {
-    
-		/* this.filtradoBusqueda = this.displayedColumns.map(element => {
-			if (BusquedaName == element.header) {
-				return element.field;
-			}
-		}).filter(item => { return item }).toString(); */
 
-		this.des = !this.des;
-		this.onPaged(0);
-
-	}
-
-  public onPaged(page: number) {
-    this.callbackFunctionOnPaged(page);
-  }
-
-  
 
   sortData(params: Sort) {
     console.log(params);
     const direction: SortDirection = params.direction;
-    this.data = direction
+    this.callbackFunctionOnPaged(params);
+    /* this.data = direction
       ? orderBy(this.data, [params.active], [direction])
-      : this._originalData;
+      : this._originalData; */
   }
 
   private buildColumns() {
     this.columns = this._tableModel.columns;
+    console.log(this.columns);
     this.sortColumns();
     this.displayedColumns = this.columns.map(col => col.key);
   }
 
   private sortColumns() {
     this.columns = sortBy(this.columns, ["order"]);
+    console.log(this.columns);
   }
 
 }
