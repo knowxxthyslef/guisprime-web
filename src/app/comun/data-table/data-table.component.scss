@@ -1,5 +1,5 @@
 .no-data {
-    background-image: url("../../../assets/img/no-data.png");
+    background-image: url("../../../assets/img/no-data.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -10,6 +10,10 @@ th.mat-header-cell {
     font-weight: 600!important; 
     text-transform: capitalize;
     color: #121212!important;
+}
+
+.mat-cell, .mat-header-cell {
+    padding: 20px;
 }
 
 
