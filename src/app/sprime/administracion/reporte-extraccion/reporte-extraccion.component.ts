@@ -1,5 +1,5 @@
 import {  Component,  OnInit } from '@angular/core';
-import { MAT_DATE_FORMATS } from '@angular/material/core';
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import {  MatDatepicker } from '@angular/material/datepicker';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -32,6 +32,7 @@ const MY_FORMATS = {
   styleUrls: ['./reporte-extraccion.component.scss'],
   providers: [
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+    { provide: MAT_DATE_LOCALE, useValue: 'es-MX' },
   ]
 })
 export class ReporteExtraccionComponent extends GeneralComponent implements OnInit {

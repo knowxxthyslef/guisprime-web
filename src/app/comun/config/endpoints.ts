@@ -5,7 +5,9 @@ export const API = {
     /* oauth: environment.apiNmlsscSeguridad + '/v1/oauth/token', */
   },
   catalogos: {
-    mock: environment.apiSprimeCatalogos + '/v1/catalogos/mock/',
+    mock: environment.apiSprimeCatalogos + '/v1/catalogos/mock/'
+  },
+  usuarios: {
+    updatePassword: environment.apiSprimeLogin + '/v1/usuario/updateUsuarioPassword'
   }
-  
 };

@@ -1,0 +1,11 @@
+{
+    "/server/": {
+      "target": "http://ec2-3-82-136-14.compute-1.amazonaws.com/",
+      "secure": false,
+      "pathRewrite": {
+        "^/server/": ""
+      },
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}

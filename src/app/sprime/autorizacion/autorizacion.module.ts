@@ -4,6 +4,7 @@ import { AutorizacionRoutingModule } from './autorizacion-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ComunModule } from 'src/app/comun/comun.module';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ResetPasswordService } from './services/reset-password.service';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CommonModule,
     AutorizacionRoutingModule,
     ComunModule
-  ]
+  ],
+  providers: [ResetPasswordService]
 })
 export class AutorizacionModule { }
