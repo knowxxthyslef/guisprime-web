@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiSprimeCatalogos: '/mssprime-catalogos',
-  apiSprimeLogin: '/server/msspm-login',
+  apiSprimeCatalogos: '/msspm-catalogos',
+  apiSprimeLogin: '/msspm-login',
 };

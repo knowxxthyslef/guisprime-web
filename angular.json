@@ -74,8 +74,7 @@
               "browserTarget": "guisprime-web:build:production"
             },
             "development": {
-              "browserTarget": "guisprime-web:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "guisprime-web:build:development"
             }
           },
           "defaultConfiguration": "development"

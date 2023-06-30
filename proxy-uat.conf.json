@@ -1,0 +1,8 @@
+{
+  "/msspm-login": {
+    "target": "https://msspm-uat.cloudapps.imss.gob.mx/msspm-login",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": { "^/msspm-login": "" }
+  }
+}

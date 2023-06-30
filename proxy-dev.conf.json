@@ -1,0 +1,8 @@
+{
+  "/msspm-login": {
+    "target": "https://localhost:9098/msspm-login",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": { "^/msspm-login": "" }
+  }
+}
