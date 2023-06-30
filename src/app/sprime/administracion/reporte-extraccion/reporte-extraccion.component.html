@@ -2,6 +2,27 @@
 <alert></alert>
 <app-main-title [title]="{title: 'Reporte de extracción de patrones sin trabajadores', salir: false, url: 'home'}"></app-main-title>
 <div style="width: calc(100% - 60px); min-height: calc(100vh - 297px);" fxLayout="column" fxLayoutAlign="center stretch" [style.marginLeft.px]="30" [style.marginRight.px]="30">
+    
+    <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.sm="10px" fxLayoutGap.xs="0">
+        <div fxFlex="0 1 calc(20% - 50px)" fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)" [style.marginTop.px]="10">
+            <label class="control-label" style="font-size: 14px;">Año*:</label>
+            <input class="form-control"  placeholder="Seleccionar año" type="text"
+            maxlength="18" autocomplete="off" 
+            style="font-size: 14px;" > 
+        </div>
+        <div fxFlex="0 1 calc(20% - 50px)" fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)" [style.marginTop.px]="10">
+            <label class="control-label" style="font-size: 14px;">Mes*:</label>
+            <input class="form-control"  placeholder="Seleccionar mes" type="text"
+            maxlength="18" autocomplete="off" 
+            style="font-size: 14px;" > 
+        </div>
+        <div fxLayout="column" fxLayoutAlign="end" fxFlex="0 1 calc(20% - 50px)" fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)" [style.marginTop.px]="10">
+            <button class="btn btn-sprime" style="width: 100%;"  >
+                Buscar
+            </button>
+        </div>
+    </div>
+    
     <app-data-table [data]="data" [callbackFunctionOnPaged]="sortPage" style="width:100%!important;"></app-data-table>
     <div fxLayout="row" fxHide fxShow.xs fxLayoutAlign="center center" [style.marginTop.px]="10" [style.marginBottom.px]="10" *ngIf="pageData?.content?.length > 0">
         <div fxFlex="70">
