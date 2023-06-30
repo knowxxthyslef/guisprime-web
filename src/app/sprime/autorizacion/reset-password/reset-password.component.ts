@@ -64,10 +64,9 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
     let password = this.formPasswordReset.get('passwordConfirm').value;
 
     this.resetPasswordService.updatePassword(curp, password).then(resp => {
-      this._alertsServices.success('La contraseña fue registrada con éxito.'); 
-      this._router.navigate(['login']);
+      this._router.navigate(['login',{message: 'La contraseña fue registrada con éxito.' }]);
     }, error => {
-      this._alertsServices.error('Error al intentar actualizar la contraseña.'); 
+      this._alertsServices.error('Error al intentar actualizar la contraseña.');
     });
   }
 

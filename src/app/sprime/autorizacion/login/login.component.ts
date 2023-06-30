@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
 
 @Component({
@@ -7,14 +8,20 @@ import { GeneralComponent } from 'src/app/comun/general-component/general.compon
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent extends GeneralComponent implements OnInit {
+export class LoginComponent extends GeneralComponent implements OnInit, AfterViewInit {
   form!: FormGroup;
   public ver: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) {
     super();
+  }
+  ngAfterViewInit(): void {
+    let message = this.route.snapshot.paramMap.get('message');
+    if(message)
+      this._alertsServices.success(message);
   }
 
   ngOnInit(): void {
@@ -24,7 +31,7 @@ export class LoginComponent extends GeneralComponent implements OnInit {
         Validators.pattern(this.curpPattern)]],
       password: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(8)]]
     });
-
+    
     this.form.get('curp').setValue('HELB931103HMCRZR00');
     this.form.get('password').setValue('Mexico82'); 
   }
