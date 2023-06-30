@@ -18,6 +18,9 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
 
   formPasswordReset!: FormGroup;
 
+  passwordPattern = new RegExp("^(?=.*[^A-Za-z0-9]{1}.*)(?=.*[0-9]{1}.*[0-9]{1}.*[0-9]{1}.*)(?=.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*).*$");
+
+
   constructor(
     private formBuilder: FormBuilder,
     private resetPasswordService : ResetPasswordService
@@ -32,9 +35,9 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
       curp:['', [Validators.required, 
         Validators.maxLength(18), 
         Validators.pattern(this.curpPattern)]],
-      oldPassword: ['', [Validators.required, Validators.maxLength(10)]],
-      newPassword: ['', [Validators.required, Validators.maxLength(10)]],
-      passwordConfirm: ['', [Validators.required, Validators.maxLength(10)]]
+      oldPassword: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(this.passwordPattern)]],
+      newPassword: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(this.passwordPattern)]],
+      passwordConfirm: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(this.passwordPattern)]]
     });
 
     
