@@ -7,9 +7,10 @@ import { SprimeModule } from './sprime/sprime.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {LayoutModule} from '@angular/cdk/layout';
 import { AppInjectorService } from './comun/herencia/app-injector.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CurrencyPipe, DatePipe } from '@angular/common';
+import { HttpRequestInterceptor } from './comun/interceptors/spinnerInterceptor/spinner-interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
   providers: [
     { provide: LOCALE_ID, useValue: 'en-US' },
     DatePipe,
-    CurrencyPipe],
+    CurrencyPipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true
+    }
+    ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
