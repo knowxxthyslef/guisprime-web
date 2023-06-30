@@ -17,7 +17,16 @@ import { ConfirmDialogModule } from 'src/app/comun/confirm-dialog';
 import { DataTableModule } from 'src/app/comun/data-table';
 import { SummaryColoredCardModule } from 'src/app/comun/summary-colored-card';
 import { PagerModule } from 'src/app/comun/pager';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatInputModule } from '@angular/material/input';
+
+import {
+  MatDatepickerModule,
+} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
+
 
 
 @NgModule({
@@ -38,9 +47,16 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     SummaryColoredCardModule,
     ConfirmDialogModule,
     MainTitleModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
     DataTableModule,
     PagerModule,
     SprimeModule
+  ],providers: [
+    MatDatepickerModule
   ]
 })
 export class AdministracionModule { }

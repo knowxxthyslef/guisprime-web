@@ -1,0 +1,37 @@
+.calendarComponent ::ng-deep .mat-form-field-infix{
+    margin-left: 35px;
+    margin-bottom: 1px;
+    height: 41px;
+}
+
+.calendarComponent ::ng-deep .mat-form-field-suffix{
+    top:-3px;
+}
+
+.calendarComponent ::ng-deep .mat-form-field-outline {
+    border: 1px solid #d6d6d6;
+    border-radius: 10px;
+}
+
+.calendarComponent ::ng-deep .mat-form-field-wrapper{
+    cursor: pointer;
+}
+
+.calendarComponent ::ng-deep .mat-datepicker-input{
+    cursor: pointer;
+}
+
+.calendarIcon {
+    background-image: url("../../../../assets/img/iconoCalendario.svg");
+    background-color: #d2eaef;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.arrowIcon {
+    background-image: url("../../../../assets/img/flechaDespliegue.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

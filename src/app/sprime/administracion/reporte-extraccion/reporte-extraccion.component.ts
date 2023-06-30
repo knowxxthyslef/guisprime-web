@@ -1,8 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {  Component,  OnInit } from '@angular/core';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+
+import {  MatDatepicker } from '@angular/material/datepicker';
+import { MatIconRegistry } from '@angular/material/icon';
 import { Sort } from '@angular/material/sort';
-import { DeserializeArray, JsonArray } from 'cerializr';
-import { Observable, map, tap } from "rxjs";
+import { DomSanitizer } from '@angular/platform-browser';
+import { DeserializeArray } from 'cerializr';
+
 import { Page } from 'src/app/comun/dataObject/page';
 import { PageRequest } from 'src/app/comun/dataObject/page.request';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
@@ -10,11 +14,25 @@ import { busquedaRequestModel, ReporteExtraccionPatronesSinTrabajadores } from '
 import { AdministrationService } from 'src/app/comun/services/administration.service';
 import { SummaryColoredCardModel } from 'src/app/comun/summary-colored-card';
 
+const MY_FORMATS = {
+  parse: {
+    dateInput: 'YYYY',
+  },
+  display: {
+    dateInput: 'YYYY',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 @Component({
   selector: 'app-reporte-extraccion',
   templateUrl: './reporte-extraccion.component.html',
-  styleUrls: ['./reporte-extraccion.component.scss']
+  styleUrls: ['./reporte-extraccion.component.scss'],
+  providers: [
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ]
 })
 export class ReporteExtraccionComponent extends GeneralComponent implements OnInit {
 
@@ -27,15 +45,27 @@ export class ReporteExtraccionComponent extends GeneralComponent implements OnIn
   cifraSubDelegaciones : SummaryColoredCardModel;
   cifraDesconcentradas : SummaryColoredCardModel;
 
+  
+
 
   public pageData: Page<ReporteExtraccionPatronesSinTrabajadores> = new Page<ReporteExtraccionPatronesSinTrabajadores>();
   public fetchRequest: PageRequest<busquedaRequestModel> =
     new PageRequest<busquedaRequestModel>();
 
   constructor(
-    public administrationService: AdministrationService
+    public administrationService: AdministrationService,
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
   ) { 
     super();
+    this.matIconRegistry.addSvgIcon(
+      "calendar",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../../../assets/img/iconoCalendario.svg")
+    );
+    this.matIconRegistry.addSvgIcon(
+      "arrow",
+      this.domSanitizer.bypassSecurityTrustResourceUrl("../../../../assets/img/flechaDespliegue.svg")
+    );
   }
 
   ngOnInit(): void {
@@ -109,6 +139,13 @@ export class ReporteExtraccionComponent extends GeneralComponent implements OnIn
 
   sendAlert(){
     this._alertsServices.info('<b>Hubo un error en la descarga del documento, inténtalo de nuevo.</b>');
+  }
+
+  setMonthAndYear(
+    normalizedMonthAndYear: any,
+    datepicker: MatDatepicker<any>
+  ) {
+   
   }
 
 }
