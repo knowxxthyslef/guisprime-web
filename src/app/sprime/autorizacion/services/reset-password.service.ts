@@ -12,8 +12,8 @@ export class ResetPasswordService {
   
     updatePassword(curp: string, password: string) {
       return this.http.put<any>(`${API.usuarios.updatePassword}`, {
-        cveUsuario: "OERG820910HVZABC00"
-        ,cvePassword: "Mexico83"
+        cveUsuario: curp
+        ,cvePassword: password
       }, {
         headers:{
             Authorization: `Basic c21wQXBwOjEyMzQ1Ng==`

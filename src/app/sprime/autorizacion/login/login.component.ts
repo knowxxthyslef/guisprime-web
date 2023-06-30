@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {  FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
 import { HttpParams } from '@angular/common/http';
 import { AccountService } from 'src/app/comun/services/account.service';
@@ -9,15 +10,21 @@ import { AccountService } from 'src/app/comun/services/account.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent extends GeneralComponent implements OnInit {
+export class LoginComponent extends GeneralComponent implements OnInit, AfterViewInit {
   form!: FormGroup;
   public ver: boolean = false;
 
   constructor(
     private accountService: AccountService,
     private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) {
     super();
+  }
+  ngAfterViewInit(): void {
+    let message = this.route.snapshot.paramMap.get('message');
+    if(message)
+      this._alertsServices.success(message);
   }
 
   ngOnInit(): void {
