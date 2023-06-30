@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
 import { ResetPasswordService } from '../services/reset-password.service';
 
@@ -36,12 +36,26 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
         Validators.maxLength(18), 
         Validators.pattern(this.curpPattern)]],
       oldPassword: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(this.passwordPattern)]],
-      newPassword: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(this.passwordPattern)]],
-      passwordConfirm: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(this.passwordPattern)]]
+      newPassword: ['', [Validators.required
+        , Validators.maxLength(10)
+        ,Validators.pattern(this.passwordPattern)
+      ,this.shouldBeNew() 
+    ]],
+      passwordConfirm: ['', [Validators.required
+        , Validators.maxLength(10)
+        ,Validators.pattern(this.passwordPattern)
+      ,this.shouldMatchNewPassword()]]
     });
 
     
    
+  }
+
+  validateForm(){
+
+    this.formPasswordReset.get('oldPassword').updateValueAndValidity();
+    this.formPasswordReset.get('newPassword').updateValueAndValidity();
+    this.formPasswordReset.get('passwordConfirm').updateValueAndValidity();
   }
 
   updatePassword(){
@@ -57,5 +71,38 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
     });
   }
 
+  shouldBeNew(): ValidatorFn {
+    return (control:AbstractControl) : ValidationErrors | null => {
+  
+        const value = control.value;
+  
+        if (!value) {
+            return null;
+        }
+  
+        const passwordValid = value == this.formPasswordReset.get('oldPassword').value;
+  
+        return passwordValid ? {isNotNew:true}: null;
+    }
+  }
+
+  shouldMatchNewPassword(): ValidatorFn {
+    return (control:AbstractControl) : ValidationErrors | null => {
+  
+        const value = control.value;
+        
+  
+        if (!value) {
+            return null;
+        }
+  
+        const passwordValid = value == this.formPasswordReset.get('newPassword').value;
+  
+        return !passwordValid ? {notMatching:true}: null;
+    }
+  }
+
 
 }
+
+
