@@ -13,6 +13,7 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
 
   public viewConfirm1: boolean = false;
   public viewConfirm2: boolean = false;
+  public viewConfirm3: boolean = false;
   passwordReset: boolean = false;
 
   formPasswordReset!: FormGroup;
@@ -31,8 +32,9 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
       curp:['', [Validators.required, 
         Validators.maxLength(18), 
         Validators.pattern(this.curpPattern)]],
-      password: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(8)]],
-      passwordConfirm: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(8)]]
+      oldPassword: ['', [Validators.required, Validators.maxLength(10)]],
+      newPassword: ['', [Validators.required, Validators.maxLength(10)]],
+      passwordConfirm: ['', [Validators.required, Validators.maxLength(10)]]
     });
 
     
@@ -46,6 +48,9 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
 
     this.resetPasswordService.updatePassword(curp, password).then(resp => {
       this._alertsServices.success('La contraseña fue registrada con éxito.'); 
+      this._router.navigate(['login']);
+    }, error => {
+      this._alertsServices.error('Error al intentar actualizar la contraseña.'); 
     });
   }
 
