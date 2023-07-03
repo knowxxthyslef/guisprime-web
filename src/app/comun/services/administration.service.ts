@@ -29,5 +29,9 @@ export class AdministrationService {
         return this.http.get<any>("./assets/json/patronesSinTrabajadores.json");
     }
 
+    public getJSONPatronesPrimaMediaActual(request: PageRequest<busquedaRequestModel>) {
+        return this.http.get<any>("./assets/json/patronesPrimaMediaActual.json");
+    }
+
 }
 

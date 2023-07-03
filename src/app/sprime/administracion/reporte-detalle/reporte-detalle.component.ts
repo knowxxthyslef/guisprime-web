@@ -46,7 +46,7 @@ export class ReporteDetalleComponent implements OnInit {
       description: 'Patrones que se<br> afectarán a la prima<br> media del mes actual',
       id: 3,
       color: '#f5f5f5',
-      url: 'cifras-apm'
+      url: 'patrones-prima-media-actual'
     });
 
     this.menuList.push(patronesVigentes);

@@ -9,6 +9,7 @@ import { CifrasApmComponent } from './cifras-apm/cifras-apm.component';
 import { CifrasPatronesComponent } from './cifras-patrones/cifras-patrones.component';
 import { GenerarArchivosComponent } from './generar-archivos/generar-archivos.component';
 import { PatronesVigentesSinTrabajadoresComponent } from './patrones-vigentes-sin-trabajadores/patrones-vigentes-sin-trabajadores.component';
+import { PatronesPrimaMediaActualComponent } from './patrones-prima-media-actual/patrones-prima-media-actual.component';
 
 const routes: Routes = [
   {
@@ -69,6 +70,17 @@ const routes: Routes = [
   {
     path: 'patrones-vigentes-sin-trabajadores',
     component: PatronesVigentesSinTrabajadoresComponent,
+    /* canActivate: [RolAuthorizacionGuard], */
+    data: {
+      allowedRoles: [
+        ROLE.ABOGADO,
+        ROLE.ADMINISTRADOR
+      ]
+    }
+  },
+  {
+    path: 'patrones-prima-media-actual',
+    component: PatronesPrimaMediaActualComponent,
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [

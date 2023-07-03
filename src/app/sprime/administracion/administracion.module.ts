@@ -18,6 +18,7 @@ import { DataTableModule } from 'src/app/comun/data-table';
 import { SummaryColoredCardModule } from 'src/app/comun/summary-colored-card';
 import { PagerModule } from 'src/app/comun/pager';
 import { PatronesVigentesSinTrabajadoresComponent } from './patrones-vigentes-sin-trabajadores/patrones-vigentes-sin-trabajadores.component';
+import { PatronesPrimaMediaActualComponent } from './patrones-prima-media-actual/patrones-prima-media-actual.component';
 
 
 
@@ -32,7 +33,8 @@ import { PatronesVigentesSinTrabajadoresComponent } from './patrones-vigentes-si
     CifrasPatronesComponent,
     AutorizarApmComponent,
     GenerarArchivosComponent,
-    PatronesVigentesSinTrabajadoresComponent
+    PatronesVigentesSinTrabajadoresComponent,
+    PatronesPrimaMediaActualComponent
   ],
   imports: [
     CommonModule,
