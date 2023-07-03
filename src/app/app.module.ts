@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { HttpRequestInterceptor } from './comun/interceptors/spinnerInterceptor/spinner-interceptor';
+import { UserIdleModule } from 'angular-user-idle';
 
 @NgModule({
   declarations: [
@@ -20,13 +21,16 @@ import { HttpRequestInterceptor } from './comun/interceptors/spinnerInterceptor/
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    UserIdleModule.forRoot({idle: 600, timeout: 180, ping: 120}),
     LayoutModule,
     NgxSpinnerModule,
     SprimeModule,
+    
     HttpClientModule
   ],
   exports:[NgxSpinnerModule],
   providers: [
+    /* provideUserIdleConfig({ idle: 1620, timeout: 180, ping: 120 }), */
     { provide: LOCALE_ID, useValue: 'en-US' },
     DatePipe,
     CurrencyPipe,

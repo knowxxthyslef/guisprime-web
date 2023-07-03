@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiSprimeCatalogos: 'https://mjlvnmlssc-qa.cloudapps.imss.gob.mx/msmjlssc-catalogos',
+  apiSprimeCatalogos: 'https://msspm.cloudapps.imss.gob.mx/msspm-catalogos',
+  apiSprimeLogin: 'https://msspm.cloudapps.imss.gob.mx/msspm-catalogos',
 };
