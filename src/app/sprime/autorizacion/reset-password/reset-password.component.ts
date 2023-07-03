@@ -35,7 +35,7 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
       curp:['', [Validators.required, 
         Validators.maxLength(18), 
         Validators.pattern(this.curpPattern)]],
-      oldPassword: ['', [Validators.required, Validators.maxLength(10),Validators.pattern(this.passwordPattern)]],
+      oldPassword: ['', [Validators.required, Validators.maxLength(10)]],
       newPassword: ['', [Validators.required
         , Validators.maxLength(10)
         ,Validators.pattern(this.passwordPattern)
