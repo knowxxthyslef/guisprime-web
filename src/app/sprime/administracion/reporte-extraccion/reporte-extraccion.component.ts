@@ -1,5 +1,6 @@
 import {  Component,  OnInit } from '@angular/core';
-import { MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { FormControl } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 import {  MatDatepicker } from '@angular/material/datepicker';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -14,13 +15,17 @@ import { busquedaRequestModel, ReporteExtraccionPatronesSinTrabajadores } from '
 import { AdministrationService } from 'src/app/comun/services/administration.service';
 import { SummaryColoredCardModel } from 'src/app/comun/summary-colored-card';
 
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import * as moment from 'moment';
+
+
 const MY_FORMATS = {
   parse: {
     dateInput: 'YYYY',
   },
   display: {
-    dateInput: 'YYYY',
-    monthYearLabel: 'YYYY',
+    dateInput: 'MMMM YYYY',
+    monthYearLabel: 'MMMM',
     dateA11yLabel: 'LL',
     monthYearA11yLabel: 'YYYY',
   },
@@ -31,6 +36,11 @@ const MY_FORMATS = {
   templateUrl: './reporte-extraccion.component.html',
   styleUrls: ['./reporte-extraccion.component.scss'],
   providers: [
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
     { provide: MAT_DATE_LOCALE, useValue: 'es-MX' },
   ]
@@ -46,7 +56,8 @@ export class ReporteExtraccionComponent extends GeneralComponent implements OnIn
   cifraSubDelegaciones : SummaryColoredCardModel;
   cifraDesconcentradas : SummaryColoredCardModel;
 
-  
+  date = new FormControl(moment());
+  dateMonth = new FormControl(moment());
 
 
   public pageData: Page<ReporteExtraccionPatronesSinTrabajadores> = new Page<ReporteExtraccionPatronesSinTrabajadores>();
@@ -72,6 +83,9 @@ export class ReporteExtraccionComponent extends GeneralComponent implements OnIn
   ngOnInit(): void {
 
     this.pageData.init([]);
+
+    this.date.disable();
+    this.dateMonth.disable();
 
     this.cifraEntidades = new SummaryColoredCardModel({
       secondaryColor: '#a6ddc3',
@@ -142,11 +156,20 @@ export class ReporteExtraccionComponent extends GeneralComponent implements OnIn
     this._alertsServices.info('<b>Hubo un error en la descarga del documento, inténtalo de nuevo.</b>');
   }
 
-  setMonthAndYear(
-    normalizedMonthAndYear: any,
-    datepicker: MatDatepicker<any>
-  ) {
-   
+  setYear(normalizedMonthAndYear: moment.Moment, datepicker: MatDatepicker<moment.Moment>) {
+    const ctrlValue = this.date.value!;
+    ctrlValue.year(normalizedMonthAndYear.year());
+    this.date.setValue(ctrlValue);
+    datepicker.close();
+  }
+
+  setMonth(normalizedMonthAndYear: moment.Moment, datepicker: MatDatepicker<moment.Moment>) {
+    const ctrlValue = this.dateMonth.value!;
+    ctrlValue.month(normalizedMonthAndYear.month());
+    this.dateMonth.setValue(ctrlValue);
+    datepicker.close();
   }
 
 }
+
+

@@ -25,6 +25,8 @@ import {
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MomentDateModule } from '@angular/material-moment-adapter';
+
 
 
 
@@ -40,6 +42,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     GenerarArchivosComponent
   ],
   imports: [
+    MomentDateModule,
     CommonModule,
     ComunModule,
     AdministracionRoutingModule,

@@ -10,7 +10,7 @@
 
 .calendarComponent ::ng-deep .mat-form-field-outline {
     border: 1px solid #d6d6d6;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .calendarComponent ::ng-deep .mat-form-field-wrapper{
@@ -20,6 +20,7 @@
 .calendarComponent ::ng-deep .mat-datepicker-input{
     cursor: pointer;
 }
+
 
 .calendarIcon {
     background-image: url("../../../../assets/img/iconoCalendario.svg");
