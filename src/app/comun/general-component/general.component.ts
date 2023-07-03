@@ -1,14 +1,10 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormArray, AbstractControl } from '@angular/forms';
+import { Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppInjectorService } from '../herencia/app-injector.service';
 import { NAV } from '../config/global';
 import { fromEvent, of, Subscription } from 'rxjs';
-import { API } from '../config/endpoints';
 
 import { NgxSpinnerService } from 'ngx-spinner';
-import { formatDate } from '@angular/common';
-import { AccountService } from '../services/account.service';
 import { AlertService } from '../alertas';
 import { CatalogoService } from '../services/catalogos.service';
 

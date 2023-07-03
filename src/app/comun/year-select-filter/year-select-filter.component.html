@@ -1,0 +1,18 @@
+<div  class="calendarComponent" fxFlex="0 1 calc(20% - 50px)" 
+        fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)" style="position: relative;">
+            <label class="control-label" style="font-size: 14px;">Año*:</label>  
+            <div class="calendarIcon" 
+            style="border-radius: 10px;  height: 34px; width: 30px; position: absolute; top: 31px;"></div>
+            <div class="arrowIcon" 
+            style="border-radius: 10px;  height: 24px; width: 19px; position: absolute; top: 39px; right: 8px;"></div>
+            <mat-form-field (click)="dp.open()" appearance="outline">
+                <input [formControl]="date" style="position: absolute; top: 7px; font-weight: bold;" placeholder="Seleccionar año"  matInput [matDatepicker]="dp" />  
+                    <mat-datepicker
+                    #dp
+                    startView="multi-year"
+                    (yearSelected)="setYear($event, dp)"
+                    disabled="false"
+                    [calendarHeaderComponent]="header">
+                    </mat-datepicker>
+            </mat-form-field>
+</div>
