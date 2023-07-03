@@ -21,13 +21,9 @@
     cursor: pointer;
 }
 
-
-.calendarComponent ::ng-deep .mat-calendar-body-label[colspan="7"] {
+::ng-deep .mat-calendar-body-label{
     display: none;
 }
-
-
-
 
 .calendarIcon {
     background-image: url("../../../assets/img/iconoCalendario.svg");
