@@ -38,10 +38,15 @@ export class YearSelectFilterComponent implements OnInit {
 
   header = YearSelectHeaderComponent;
 
+  currentYear : number = new Date().getFullYear();
+  maxDate = new Date();
+  minDate = new Date();
+
   constructor() { }
 
   ngOnInit(): void {
     this.date.disable();
+    this.minDate.setFullYear(this.currentYear - 5);
   }
 
 
@@ -51,6 +56,8 @@ export class YearSelectFilterComponent implements OnInit {
     this.date.setValue(ctrlValue);
     datepicker.close();
   }
+
+
 }
 
 
