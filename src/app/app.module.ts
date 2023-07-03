@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { HttpRequestInterceptor } from './comun/interceptors/spinnerInterceptor/spinner-interceptor';
 import { UserIdleModule } from 'angular-user-idle';
+import { ErrorInterceptorHelper } from './comun/helper/errorInterceptor.helper';
+import { JWTInterceptorHelper } from './comun/interceptors/jwtInterceptor.helper';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,9 @@ import { UserIdleModule } from 'angular-user-idle';
     { provide: LOCALE_ID, useValue: 'en-US' },
     DatePipe,
     CurrencyPipe,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpRequestInterceptor,
-      multi: true
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorHelper, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptorHelper, multi: true },
     ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

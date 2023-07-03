@@ -68,19 +68,20 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
       }
       return;
     }
+    this._spinner.show();
 
     const body = new HttpParams()
     .set('username', this.form.controls.curp.value)
     .set('password', this.form.controls.password.value)
     .set('grant_type', 'password');
     this.accountService.login(body).then(success => {
+      this._spinner.hide();
       this._router.navigate(['home']);
-    }).catch(err => {
-      console.log(err)
+    }).catch((err) => {
+      this._spinner.hide();
       if(err.status === 400){
-      
-        /* this.form.get('password')?.setErrors({ credentials: true }); */
-        this._alertsServices.error('Credenciales invalidas');
+        this.form.get('password')?.setErrors({ credentials: true });
+        /* this._alertsServices.error('Credenciales invalidas'); */
       }
       else{
         this._alertsServices.error('El servidor presenta problemas en este momento. Lamentamos el inconveniente.');

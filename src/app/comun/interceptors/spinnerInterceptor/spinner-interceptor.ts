@@ -18,22 +18,41 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Injectable()
 export class HttpRequestInterceptor implements HttpInterceptor {
 
+  private excludeService: Array<string> = [
+    '/v1/oauth/token',
+  ];
+
+
   constructor(
     private _spinner : NgxSpinnerService
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this._spinner.show();
-    return next.handle(request)
-    .pipe(catchError((err) => {
-        this._spinner.hide();
-        return err;
-      }))
-    .pipe(map<any, any>((evt: HttpEvent<any>) => {
-        if (evt instanceof HttpResponse) {
-            this._spinner.hide();
-        }
-        return evt;
-      }));
+    if (this.isServiceExcluded(request.url) === false) {
+      this._spinner.show();
+      return next.handle(request)
+      .pipe(catchError((err) => {
+          this._spinner.hide();
+          return err;
+        }))
+      .pipe(map<any, any>((evt: HttpEvent<any>) => {
+          if (evt instanceof HttpResponse) {
+              this._spinner.hide();
+          }
+          return evt;
+        }));
+    }else{
+      return next.handle(request);
+    }
+  }
+
+  private isServiceExcluded(url: string): boolean {
+    const found = this.excludeService.filter((service) => {
+      if (url.includes(service)) {
+        return service;
+      }
+    });
+
+    return found.length > 0;
   }
 }
