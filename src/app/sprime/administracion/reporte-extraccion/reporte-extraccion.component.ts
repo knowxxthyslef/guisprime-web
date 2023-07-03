@@ -83,7 +83,7 @@ export class ReporteExtraccionComponent extends GeneralComponent implements OnIn
     this.fetchRequest.pageSize = 10;
     this.fetchRequest.order = this.filtradoBusqueda;
     this.fetchRequest.desc = this.des
-    this.administrationService.getJSON(this.fetchRequest)
+    this.administrationService.getJSONCifras(this.fetchRequest)
     .subscribe({
         next: (result) => {
           console.log(result)

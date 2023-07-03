@@ -21,5 +21,9 @@ export class AdministrationService {
         return this.http.get<any>("./assets/json/clientes.json");
     }
 
+    public getJSONCifras(request: PageRequest<busquedaRequestModel>) {
+        return this.http.get<any>("./assets/json/cifras.json");
+    }
+
 }
 

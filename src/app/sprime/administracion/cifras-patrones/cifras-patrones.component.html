@@ -1,2 +1,39 @@
 <app-header></app-header>
+<alert></alert>
 <app-main-title [title]="{title: 'Reportes Cifras control de Extracción de Patrones Vigentes sin Trabajadores', salir: false, url: 'home'}"></app-main-title>
+<div style="width: calc(100% - 60px); min-height: calc(100vh - 297px);" fxLayout="column" fxLayoutAlign="center stretch" [style.marginLeft.px]="30" [style.marginRight.px]="30">
+    
+    <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.sm="10px" fxLayoutGap.xs="0" [style.marginTop.px]="20" [style.marginBottom.px]="20">
+    <app-year-select-filter></app-year-select-filter>
+    <app-month-select-filter></app-month-select-filter>
+        
+        <div fxLayout="column" fxLayoutAlign="center" fxFlex="0 1 calc(20% - 50px)" fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)">
+            <button class="btn btn-sprime" style="width: 100%;"  >
+                Buscar
+            </button>
+        </div>
+    </div>
+    
+    <app-data-table [data]="data" [callbackFunctionOnPaged]="sortPage" style="width:100%!important;"></app-data-table>
+    <div fxLayout="row" fxHide fxShow.xs fxLayoutAlign="center center" [style.marginTop.px]="10" [style.marginBottom.px]="10" *ngIf="pageData?.content?.length > 0">
+        <div fxFlex="70">
+            <app-pager [pageModel]="pageData" (paged)="changePage($event)"></app-pager>
+        </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="50px" fxLayoutGap.sm="10px" fxLayoutGap.xs="0">
+        <app-summary-colored-card [button]="cifraEntidades" fxFlex="0 1 calc(33.3% - 50px)" fxFlex.sm="calc(33% - 10px)" fxFlex.xs="calc(100%)"></app-summary-colored-card>
+        <app-summary-colored-card [button]="cifraSubDelegaciones" fxFlex="0 1 calc(33.3% - 50px)" fxFlex.sm="calc(33% - 10px)" fxFlex.xs="calc(100%)"></app-summary-colored-card>
+        <app-summary-colored-card [button]="cifraDesconcentradas" fxFlex="0 1 calc(33.3%)" fxFlex.sm="calc(33% - 10px)" fxFlex.xs="calc(100%)"></app-summary-colored-card>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" fxLayoutAlign.xs="center center" [style.marginTop.px]="10" [style.marginBottom.px]="10" fxLayoutGap="20px">
+        <div fxHide fxShow.gt-xs fxFlex="25" fxFlex.xl="20" fxFlex.lg="30" fxFlex.md="40" fxFlex.sm="55" *ngIf="pageData?.content?.length > 0">
+            
+        </div>
+        <div fxFlex="20" fxFlex.xl="10" fxFlex.lg="15" fxFlex.md="20" fxFlex.sm="30" fxFlex.xs="80">
+            <button class="btn btn-sprime" style="width: 100%;"  (click)="sendAlert()">
+                <i class="bi bi-download"></i>
+                Generar PDF
+            </button>
+        </div>
+    </div>
+</div>

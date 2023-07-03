@@ -1,0 +1,65 @@
+{
+    "content":[
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros residentes anteriores",
+            "patronesSinTrabajadores": 200
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros le&iacute;dos provenientes de archivo de APM",
+            "patronesSinTrabajadores": 1000
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros coincidentes",
+            "patronesSinTrabajadores": 1000
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros nuevos",
+            "patronesSinTrabajadores": 1000
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros ignorados por ya contar con movimiento para APM",
+            "patronesSinTrabajadores": 1000
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros eliminados por ya contar con trabajadores vigentes",
+            "patronesSinTrabajadores": 1000
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros residentes actuales",
+            "patronesSinTrabajadores": 1000
+        },
+        {
+            "id":221,
+            "cveDelegacion": 1,
+            "delegacion":"Registros le&iacute;dos para ubicarse en la Prima media de su clase",
+            "patronesSinTrabajadores": 1000
+        }
+    ],
+    "last":false,
+    "totalPages":13,
+    "totalElements":128,
+    "sort":{
+        "sorted":false,
+        "unsorted":true,
+        "empty":true
+    },
+    "numberOfElements":10,
+    "first":true,
+    "size":10,
+    "number":4,
+    "empty":false
+}

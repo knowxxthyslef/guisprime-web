@@ -27,3 +27,18 @@ export class ReporteExtraccionPatronesSinTrabajadores{
     @Column({canSort: true, title: 'Patrones sin trabajadores'})
     patronesSinTrabajadores?: number;
 }
+
+export class ReporteCifrasControlExtraccionPatronesVigentesSinTrabajadores{
+    @autoserializeAs(Number)
+    id?: number;
+    @autoserializeAs(Number)
+    cveDelegacion?: number;
+
+    @autoserializeAs(String)
+    @Column({canSort: true, title: 'OOAD'})
+    delegacion?: string;
+
+    @autoserializeAs(Number)
+    @Column({canSort: true, title: 'Patrones sin trabajadores'})
+    patronesSinTrabajadores?: number;
+}
