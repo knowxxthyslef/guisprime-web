@@ -13,6 +13,8 @@ import { AccountService } from 'src/app/comun/services/account.service';
 export class LoginComponent extends GeneralComponent implements OnInit, AfterViewInit {
   form!: FormGroup;
   public ver: boolean = false;
+  public validCurp: boolean = false;
+  passwordPattern = new RegExp("^(?=.*[^A-Za-z0-9]{1}.*)(?=.*[0-9]{1}.*[0-9]{1}.*[0-9]{1}.*)(?=.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*).*$");
 
   constructor(
     private accountService: AccountService,
@@ -33,13 +35,14 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
     this.form = this.formBuilder.group({
       curp:['', [Validators.required, 
         Validators.maxLength(18), 
-        /* Validators.pattern(this.curpPattern) */
+        Validators.pattern(this.curpPattern)
       ]],
-      password: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(8)]]
+      /* password: ['', [Validators.required, Validators.maxLength(12), Validators.minLength(10)]] */
+      password: ['', []]
     });
 
-    this.form.get('curp').setValue('OERG820910HVZABC00');
-    this.form.get('password').setValue('Mexico82'); 
+    this.form.get('curp').setValue('OERG820910HMCBBB00');
+    this.form.get('password').setValue('Mexico820*'); 
 
     /* this.form.get('curp').setValue('HELB931103HMCRZR00');
     this.form.get('password').setValue('Mexico82');  */
@@ -55,14 +58,28 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
 
 
   doLogin(){
+
+    if(!this.validCurp){
+      /* this.form.controls['curp'].disable(); */
+      this.validCurp = true;
+      this.form.controls['password'].setValidators([Validators.required, Validators.pattern(this.passwordPattern)]);
+      for (const key in this.form.controls) {
+        this.form.get(key).updateValueAndValidity();
+      }
+      return;
+    }
+
     const body = new HttpParams()
     .set('username', this.form.controls.curp.value)
     .set('password', this.form.controls.password.value)
     .set('grant_type', 'password');
     this.accountService.login(body).then(success => {
       this._router.navigate(['home']);
-    }).catch((err) => {
+    }).catch(err => {
+      console.log(err)
       if(err.status === 400){
+      
+        /* this.form.get('password')?.setErrors({ credentials: true }); */
         this._alertsServices.error('Credenciales invalidas');
       }
       else{
