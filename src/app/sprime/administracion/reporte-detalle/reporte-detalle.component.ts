@@ -28,7 +28,7 @@ export class ReporteDetalleComponent implements OnInit {
       description: 'Patrones vigentes<br> sin trabajadores',
       id: 1,
       color: '#f5f5f5',
-      url: 'reporte-extraccion'
+      url: 'patrones-vigentes-sin-trabajadores'
     });
 
     let reporteDetalles = new ButtonMenu({

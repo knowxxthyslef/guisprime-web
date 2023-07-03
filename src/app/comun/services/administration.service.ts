@@ -25,5 +25,9 @@ export class AdministrationService {
         return this.http.get<any>("./assets/json/cifras.json");
     }
 
+    public getJSONPatronesSinTrabajadores(request: PageRequest<busquedaRequestModel>) {
+        return this.http.get<any>("./assets/json/patronesSinTrabajadores.json");
+    }
+
 }
 
