@@ -13,14 +13,6 @@ export class YearSelectHeaderComponent  extends MatCalendarHeader<Date> {
     return super.periodButtonText;
   }
 
-  public next() {
-    super.nextClicked();
-  }
-
-  public prev() {
-    super.previousClicked();
-  }
-
 }
 
 
