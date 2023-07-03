@@ -19,6 +19,7 @@ import { SummaryColoredCardModule } from 'src/app/comun/summary-colored-card';
 import { PagerModule } from 'src/app/comun/pager';
 import { PatronesVigentesSinTrabajadoresComponent } from './patrones-vigentes-sin-trabajadores/patrones-vigentes-sin-trabajadores.component';
 import { PatronesPrimaMediaActualComponent } from './patrones-prima-media-actual/patrones-prima-media-actual.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -46,6 +47,7 @@ import { PatronesPrimaMediaActualComponent } from './patrones-prima-media-actual
     MainTitleModule,
     DataTableModule,
     PagerModule,
+    MatSelectModule,
     SprimeModule
   ]
 })
