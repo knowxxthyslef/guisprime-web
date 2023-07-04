@@ -41,6 +41,7 @@ export class MonthSelectFilterComponent implements OnInit {
   header = MonthSelectHeaderComponent;
 
   currentYear : number = new Date().getFullYear();
+  currentMonth : number = new Date().getMonth();
   maxDate = new Date();
   minDate = new Date();
 
@@ -56,7 +57,9 @@ export class MonthSelectFilterComponent implements OnInit {
       }else{
         this.minDate = new Date(resp,0,1);
         this.maxDate = new Date();
-        this.dateMonth.setValue(moment());
+        let selectedMonth = this.dateMonth.value.month();
+        if(this.currentMonth < selectedMonth)
+          this.dateMonth.setValue(moment());
       }
     });
   }
