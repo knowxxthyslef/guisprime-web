@@ -6,6 +6,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import * as moment from 'moment';
 import { MonthSelectHeaderComponent } from './month-select-header/month-select-header.component';
 import { MonthByYearService } from '../services/month-by-year.service';
+import { Subscription } from 'rxjs';
 
 const MY_FORMATS = {
   parse: {
@@ -43,10 +44,12 @@ export class MonthSelectFilterComponent implements OnInit {
   maxDate = new Date();
   minDate = new Date();
 
+  subscripcion: Subscription;
+
   constructor(
     private monthByYearService: MonthByYearService 
   ) { 
-    this.monthByYearService.isSelected$.subscribe(resp => {
+    this.subscripcion = this.monthByYearService.isSelected$.subscribe(resp => {
       if(resp != this.currentYear){
         this.minDate = new Date(resp,0,1);
         this.maxDate = new Date(resp,11,31);
@@ -61,6 +64,10 @@ export class MonthSelectFilterComponent implements OnInit {
   ngOnInit(): void {
     this.dateMonth.disable();
   }
+
+  ngOnDestroy(): void {
+    this.subscripcion.unsubscribe();
+  } 
 
   
   setMonth(normalizedMonthAndYear: moment.Moment, datepicker: MatDatepicker<moment.Moment>) {
