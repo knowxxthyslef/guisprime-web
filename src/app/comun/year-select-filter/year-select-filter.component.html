@@ -1,8 +1,9 @@
 <div  class="selectComponent" fxFlex="0 1 calc(20% - 50px)" 
 fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)" style="position: relative;"  >
-            <label for="yearSelect" class="control-label" style="font-size: 14px;">Año:</label>
+            <label for="yearSelect" class="control-label" style="font-size: 14px;">Año*:</label>
             
                 <select 
+                    (change)="selectYear()"
                     [formControl]="date"  
                     id="yearSelect" 
                     class="form-control" 

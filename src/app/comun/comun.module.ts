@@ -13,9 +13,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { YearSelectHeaderComponent } from './year-select-filter/year-select-header/year-select-header.component';
 import { YearSelectFilterComponent } from './year-select-filter/year-select-filter.component';
-import { MonthSelectHeaderComponent } from './month-select-filter/month-select-header/month-select-header.component';
 import { MonthSelectFilterComponent } from './month-select-filter/month-select-filter.component';
 import { DelegacionSelectComponent } from './delegacion-select/delegacion-select.component';
 import { MatSelectModule } from '@angular/material/select';
@@ -27,9 +25,7 @@ import { MonthByYearService } from './services/month-by-year.service';
       , SafePipe
       , MaskPipe
       ,YearSelectFilterComponent
-      ,YearSelectHeaderComponent
       ,MonthSelectFilterComponent
-      , MonthSelectHeaderComponent
       , DelegacionSelectComponent],
   imports: [
     CommonModule,
@@ -55,9 +51,7 @@ import { MonthByYearService } from './services/month-by-year.service';
       , SafePipe
       , MaskPipe
       ,YearSelectFilterComponent
-    ,YearSelectHeaderComponent
     ,MonthSelectFilterComponent
-    , MonthSelectHeaderComponent
     ,DelegacionSelectComponent
       ],providers: [
         MatDatepickerModule

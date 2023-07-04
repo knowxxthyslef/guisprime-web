@@ -1,39 +1,23 @@
-.selectComponent ::ng-deep .mat-form-field-infix{
-    margin-left: 35px;
-    margin-bottom: 1px;
-    height: 41px;
-}
-
-.selectComponent ::ng-deep .mat-select-arrow {
-    display: none;
-}
-
-.selectComponent ::ng-deep .mat-form-field-suffix{
-    top:-3px;
-}
-
-.selectComponent ::ng-deep .mat-form-field-outline {
-    border: 1px solid #d6d6d6;
-    border-radius: 4px;
-}
-
-.selectComponent ::ng-deep .mat-form-field-wrapper{
-    cursor: pointer;
-}
-
-.selectComponent ::ng-deep .mat-datepicker-input{
-    cursor: pointer;
-}
-
 select {
     -moz-appearance:none; /* Firefox */
     -webkit-appearance:none; /* Safari and Chrome */
     appearance:none;
+    cursor: pointer;
+    width: 250px;
+    color: lightslategray;
 }
 
-.arrowIcon {
-    background-image: url("../../../assets/img/flechaDespliegue.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
+.selectComponent:after {
+    content: '>';
+    font: 30px "Consolas", monospace;
+    color: #42a6b8;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 11px;    
+    top: 24px;
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+  }
