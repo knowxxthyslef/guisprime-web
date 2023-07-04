@@ -16,6 +16,15 @@ export class UserLoginModel {
     expires_in?: number;
     username?: string;
     authorities?: string[];
+
+    nombre?: string;
+    apellidoPaterno?: string;
+    apellidoMaterno?: string;
+    curp?: string;
+    delegacion?: string;
+    subdelegacion?: string;
+    perfil?: string;
+
 }
 
 class BearerModel {
