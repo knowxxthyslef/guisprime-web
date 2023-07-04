@@ -23,7 +23,11 @@
 }
 
 .imss-footer-content{
-    width: 300px;
+    width: 320px;
     height: 40px;
     background-color: white;
+    background-image: url("../../../assets/img/footer.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

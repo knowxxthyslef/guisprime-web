@@ -111,12 +111,14 @@ export class AccountService {
         correo: tokenDecrypt.correo,
         username: tokenDecrypt.user_name,
         cveUsuario: tokenDecrypt.cveUsuario,
-        /* user_name: tokenDecrypt.user_name,
-        password: null,
+
         nombre: tokenDecrypt.nombre,
-        delegacion: tokenDecrypt.delegacion,
         apellidoPaterno: tokenDecrypt.apellidoPaterno,
-        apellidoMaterno: tokenDecrypt.apellidoMaterno, */
+        apellidoMaterno: tokenDecrypt.apellidoMaterno,
+        delegacion: tokenDecrypt.delegacion,
+        subdelegacion: tokenDecrypt.subdelegacion,
+        perfil: tokenDecrypt.perfil,
+
         authorities: tokenDecrypt.authorities,
         accessToken: {
           bearer: data.access_token,
@@ -132,6 +134,55 @@ export class AccountService {
     } catch (error) {
       return null;
     }
+  }
+
+  getCurp(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.curp;
+    }
+    return null;
+  }
+
+  getPerfil(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.perfil;
+    }
+    return null;
+  }
+
+  getNombre(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.nombre;
+    }
+    return null;
+  }
+
+  getApellidoPaterno(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.apellidoPaterno;
+    }
+    return null;
+  }
+
+  getApellidoMaterno(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.apellidoMaterno;
+    }
+    return null;
+  }
+
+  getDelegacion(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.delegacion;
+    }
+    return null;
+  }
+
+  getSubdelegacion(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.subdelegacion;
+    }
+    return null;
   }
 
 

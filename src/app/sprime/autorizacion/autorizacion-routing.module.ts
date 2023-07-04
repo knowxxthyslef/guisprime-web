@@ -9,14 +9,18 @@ const routes: Routes = [
     path: '',
     component: LoginComponent,
     /* canActivate: [RolAuthorizacionGuard], */
-    data: {
+    /* data: {
       allowedRoles: [
         ROLE.ABOGADO,
         ROLE.ADMINISTRADOR
       ]
-    }
-  }
-  ,{
+    } */
+  },
+  {
+    path: 'login-password',
+    component: ResetPasswordComponent
+  },
+  {
     path: 'resetPassword',
     component: ResetPasswordComponent
   }

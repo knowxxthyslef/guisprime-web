@@ -17,9 +17,9 @@
                             <span class="bootstrap-icons form-control-icon" aria-hidden="true" style="font-size: 16px!important; color: #565f76; margin-right: 5px;">
                                 <i class="bi bi-chevron-down"></i>
                             </span>
-                            HELB931103HMCRZR00 
+                            {{ curp ? (curp | uppercase) : '' }} 
                         </div>
-                        <div style="font-size: 14px; font-weight: 500; color: #42a6b8"> Jose Perez / Abogado </div>
+                        <div style="font-size: 14px; font-weight: 500; color: #42a6b8"> {{ nombre ? (nombre | titlecase) : '' }} {{ apellidoPaterno ? (apellidoPaterno | titlecase) : '' }} / {{ perfil ? (perfil | titlecase) : ''}} </div>
                     </div>
                     <div fxFlexAlign="start">
                         <div class="icon-user-header"></div>
@@ -40,12 +40,12 @@
                                         <span class="bootstrap-icons form-control-icon" aria-hidden="true" style="font-size: 16px!important; color: #f5f5f5; margin-right: 5px;">
                                             <i class="bi bi-chevron-down"></i>
                                         </span>
-                                        Delegación / Subdelegación 
+                                        {{ delegacion ? (delegacion | titlecase) : ''}} / {{ subdelegacion ? ( subdelegacion | titlecase) : ''}} 
                                     </div>
                                     <div style="font-size: 14px; font-weight: 500; color: #42a6b8; font-weight: 600; cursor: pointer;" (click)="cerrarSesion()"> Cerrar sesión </div>
                                 </div>
                                 <div fxFlexAlign="start">
-                                    <div class="icon-user-header"></div>
+                                    <!-- <div class="icon-user-header"></div> -->
                                 </div>
                             </div>
                         </div>

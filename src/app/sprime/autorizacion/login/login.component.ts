@@ -60,7 +60,7 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
   doLogin(){
 
     if(!this.validCurp){
-      /* this.form.controls['curp'].disable(); */
+      this.form.controls['curp'].disable();
       this.validCurp = true;
       this.form.controls['password'].setValidators([Validators.required, Validators.pattern(this.passwordPattern)]);
       for (const key in this.form.controls) {
@@ -74,9 +74,14 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
     .set('username', this.form.controls.curp.value)
     .set('password', this.form.controls.password.value)
     .set('grant_type', 'password');
-    this.accountService.login(body).then(success => {
+    this.accountService.login(body).then(response => {
       this._spinner.hide();
-      this._router.navigate(['home']);
+      let isAdmin: boolean = false;
+      if(isAdmin){
+        this._router.navigate(['administracion']);
+      }else{
+        this._router.navigate(['home']);
+      }
     }).catch((err) => {
       this._spinner.hide();
       if(err.status === 400){

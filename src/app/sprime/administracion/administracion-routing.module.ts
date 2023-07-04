@@ -18,8 +18,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -29,8 +30,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -40,8 +42,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -51,8 +54,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -62,8 +66,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -73,8 +78,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -84,8 +90,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -95,8 +102,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
@@ -106,8 +114,9 @@ const routes: Routes = [
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [
-        ROLE.ABOGADO,
-        ROLE.ADMINISTRADOR
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
       ]
     }
   },
