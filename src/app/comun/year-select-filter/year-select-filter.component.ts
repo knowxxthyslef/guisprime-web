@@ -20,11 +20,14 @@ export class YearSelectFilterComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+    let firstYear = this.currentYear - 5;
+
     for(let x  = 0; x <= 5; x++){
       this.yearList.push({
-        label: ""+(this.currentYear - x)
-        ,value: this.currentYear - x
-      })
+        label: ""+(firstYear + x)
+        ,value: firstYear + x
+      });
     }
 
     this.date.setValue(
