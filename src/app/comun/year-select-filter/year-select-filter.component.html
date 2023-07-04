@@ -1,24 +1,17 @@
-<div  class="calendarComponent" fxFlex="0 1 calc(20% - 50px)" 
-        fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)" >
-            <label class="control-label" style="font-size: 14px;">Año*:</label>  
+<div  class="selectComponent" fxFlex="0 1 calc(20% - 50px)" 
+fxFlex.sm="calc(20% - 10px)" fxFlex.xs="calc(100%)" style="position: relative;"  >
+            <label for="yearSelect" class="control-label" style="font-size: 14px;">Año:</label>
             
+                <select 
+                    [formControl]="date"  
+                    id="yearSelect" 
+                    class="form-control" 
+                     aria-label="Selecciona un año"
+                     aria-placeholder="Selecciona un año">
+                     <option value="">Selecciona un año</option>
+                    <option *ngFor="let year of yearList" [value]="year.value">{{year.label}}</option>
+                  </select>
+
             
 
-            <mat-form-field (click)="dp.open()" appearance="outline" style="position: relative;">
-                <div class="calendarIcon" 
-            style="border-radius: 10px;  height: 34px; width: 30px; position: absolute; top: -4px; left: -41px;">
-            </div>
-            
-            <div class="arrowIcon" 
-            style="border-radius: 10px;  height: 24px; width: 19px; position: absolute; top: 2px; right: 8px;">
-            </div>
-                <input [min]="minDate" [max]="maxDate" [formControl]="date" style="position: absolute; top: 7px; font-weight: bold;" placeholder="Seleccionar año"  matInput [matDatepicker]="dp" />  
-                    <mat-datepicker
-                    #dp
-                    startView="multi-year"
-                    (yearSelected)="setYear($event, dp)"
-                    disabled="false"
-                    [calendarHeaderComponent]="header">
-                    </mat-datepicker>
-            </mat-form-field>
-</div>
+        </div>

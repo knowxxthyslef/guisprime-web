@@ -6,6 +6,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import * as moment from 'moment';
 import { YearSelectHeaderComponent } from './year-select-header/year-select-header.component';
 import { MonthByYearService } from '../services/month-by-year.service';
+import { ComboItem } from '../model/combo-item.model';
 
 const MY_FORMATS = {
   parse: {
@@ -35,7 +36,9 @@ const MY_FORMATS = {
 })
 export class YearSelectFilterComponent implements OnInit {
 
-  date = new FormControl(moment());
+  date = new FormControl("");
+
+  
 
   header = YearSelectHeaderComponent;
 
@@ -43,25 +46,40 @@ export class YearSelectFilterComponent implements OnInit {
   maxDate = new Date();
   minDate = new Date();
 
+  yearList: ComboItem[] = [];
+
+
+
   constructor(
     private monthByYearService: MonthByYearService
   ) { }
 
   ngOnInit(): void {
-    this.date.disable();
+
+    for(let x  = 0; x <= 5; x++){
+      this.yearList.push({
+        label: ""+(this.currentYear - x)
+        ,value: this.currentYear - x
+      })
+    }
+
     this.minDate.setFullYear(this.currentYear - 5);
+
     this.monthByYearService.setYearSelected(this.currentYear);
   }
 
 
   setYear(normalizedMonthAndYear: moment.Moment, datepicker: MatDatepicker<moment.Moment>) {
     const ctrlValue = this.date.value!;
-    ctrlValue.year(normalizedMonthAndYear.year());
+
     this.monthByYearService.setYearSelected(normalizedMonthAndYear.year());
-    this.date.setValue(ctrlValue);
+    
     datepicker.close();
   }
 
+  openYearSelect(){
+
+  }
 
 }
 
