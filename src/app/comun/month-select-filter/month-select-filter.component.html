@@ -9,7 +9,7 @@
                 <div class="arrowIcon" 
                 style="border-radius: 10px;  height: 24px; width: 19px; position: absolute; top: 2px; right: 8px;">
                 </div>
-                <input [formControl]="dateMonth" style="position: absolute; top: 7px; font-weight: bold;" placeholder="Seleccionar mes"  matInput [matDatepicker]="dpMonth" />  
+                <input [min]="minDate" [max]="maxDate" [formControl]="dateMonth" style="position: absolute; top: 7px; font-weight: bold;" placeholder="Seleccionar mes"  matInput [matDatepicker]="dpMonth" />  
                    
                     <mat-datepicker
                     #dpMonth

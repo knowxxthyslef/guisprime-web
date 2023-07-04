@@ -5,6 +5,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { MatDatepicker } from '@angular/material/datepicker';
 import * as moment from 'moment';
 import { MonthSelectHeaderComponent } from './month-select-header/month-select-header.component';
+import { MonthByYearService } from '../services/month-by-year.service';
 
 const MY_FORMATS = {
   parse: {
@@ -38,7 +39,24 @@ export class MonthSelectFilterComponent implements OnInit {
 
   header = MonthSelectHeaderComponent;
 
-  constructor() { }
+  currentYear : number = new Date().getFullYear();
+  maxDate = new Date();
+  minDate = new Date();
+
+  constructor(
+    private monthByYearService: MonthByYearService 
+  ) { 
+    this.monthByYearService.isSelected$.subscribe(resp => {
+      if(resp != this.currentYear){
+        this.minDate = new Date(resp,0,1);
+        this.maxDate = new Date(resp,11,31);
+      }else{
+        this.minDate = new Date(resp,0,1);
+        this.maxDate = new Date();
+        this.dateMonth.setValue(moment());
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.dateMonth.disable();

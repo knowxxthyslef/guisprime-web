@@ -19,6 +19,7 @@ import { MonthSelectHeaderComponent } from './month-select-filter/month-select-h
 import { MonthSelectFilterComponent } from './month-select-filter/month-select-filter.component';
 import { DelegacionSelectComponent } from './delegacion-select/delegacion-select.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MonthByYearService } from './services/month-by-year.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { MatSelectModule } from '@angular/material/select';
     ,DelegacionSelectComponent
       ],providers: [
         MatDatepickerModule
+        ,MonthByYearService
       ]
 })
 export class ComunModule { }
