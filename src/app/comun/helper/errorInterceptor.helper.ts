@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AccountService } from '../services/account.service';
+import { AlertService } from '../alertas';
 
 
 @Injectable()
@@ -12,6 +13,7 @@ export class ErrorInterceptorHelper implements HttpInterceptor {
     constructor(
         private router: Router,
         private accountService: AccountService,
+        private _alertsServices: AlertService
     ){}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -19,9 +21,10 @@ export class ErrorInterceptorHelper implements HttpInterceptor {
             const error = (err.error && err.error.mensaje) || (err.error && err.error.error_description) || err.name;
             if(err.error && (err.error.error === 'unauthorized' ||  err.error.error === 'invalid_token') ){
                 this.accountService.logout();
-            }/* else if(err.error && (err.name === 'HttpErrorResponse')){
+            } else if(err.error && (err.name === 'HttpErrorResponse')){
+                this._alertsServices.error(err.error.mensaje);
                 return throwError(() => error);      
-            } */
+            } 
             else{
                 return next.handle(request);
             }

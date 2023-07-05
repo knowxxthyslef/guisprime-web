@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { API } from "src/app/comun/config/endpoints";
+import { ServerResponse } from "../model/server-response.model";
 
 @Injectable()
 export class ResetPasswordService {
@@ -11,7 +12,7 @@ export class ResetPasswordService {
     }
   
     updatePassword(curp: string, password: string) {
-      return this.http.put<any>(`${API.usuarios.updatePassword}`, {
+      return this.http.put<ServerResponse>(`${API.usuarios.updatePassword}`, {
         cveUsuario: curp
         ,cvePassword: password
       }, {

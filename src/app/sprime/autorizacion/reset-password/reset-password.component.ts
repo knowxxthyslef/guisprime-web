@@ -64,9 +64,7 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
     let password = this.formPasswordReset.get('passwordConfirm').value;
 
     this.resetPasswordService.updatePassword(curp, password).then(resp => {
-      this._router.navigate(['login',{message: 'La contraseña fue registrada con &eacute;xito.' }]);
-    }, error => {
-      this._alertsServices.error('Error al intentar actualizar la contraseña.');
+      this._router.navigate(['login',{message: resp.mensaje }]);
     });
   }
 
