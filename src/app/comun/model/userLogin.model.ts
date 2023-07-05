@@ -1,3 +1,4 @@
+import { ButtonMenu } from "../button-menu";
 import { Delegacion } from "./catalogos.model";
 
 export class UserLoginModel {
@@ -24,6 +25,7 @@ export class UserLoginModel {
     delegacion?: string;
     subdelegacion?: string;
     perfil?: string;
+    menu?: ButtonMenu[];
 
 }
 

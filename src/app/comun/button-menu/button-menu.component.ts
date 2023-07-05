@@ -12,8 +12,8 @@ export class ButtonMenuComponent implements OnInit {
   @Input() button: ButtonMenu = new ButtonMenu({
     icon: 'button-ico',
     secondaryColor: 'linear-gradient(#46a8b9, #96cfd9)',
-    description: 'Reporte de extracción<br> de patrones',
-    id: 1,
+    desOpcionMenu: 'Reporte de extracción<br> de patrones',
+    idOpcionMenu: 1,
     color: '#f5f5f5',
     url: 'login'
   });
@@ -21,6 +21,8 @@ export class ButtonMenuComponent implements OnInit {
   constructor(private router: Router,) { }
 
   ngOnInit(): void {
+    this.button.color = '#f5f5f5';
+    this.button.secondaryColor = 'linear-gradient(#46a8b9, #96cfd9)';
   }
 
   send(){

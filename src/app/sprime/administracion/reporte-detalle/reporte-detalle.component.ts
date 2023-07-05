@@ -25,8 +25,8 @@ export class ReporteDetalleComponent implements OnInit {
     let patronesVigentes = new ButtonMenu({
       icon: 'reporte-extraccion',
       secondaryColor: 'linear-gradient(#46a8b9, #96cfd9)',
-      description: 'Patrones vigentes<br> sin trabajadores',
-      id: 1,
+      desOpcionMenu: 'Patrones vigentes<br> sin trabajadores',
+      idOpcionMenu: 1,
       color: '#f5f5f5',
       url: 'patrones-vigentes-sin-trabajadores'
     });
@@ -34,8 +34,8 @@ export class ReporteDetalleComponent implements OnInit {
     let reporteDetalles = new ButtonMenu({
       icon: 'reporte-detalles',
       secondaryColor: 'linear-gradient(#46a8b9, #96cfd9)',
-      description: 'Patrones vigentes<br> con menos de 6 meses',
-      id: 2,
+      desOpcionMenu: 'Patrones vigentes<br> con menos de 6 meses',
+      idOpcionMenu: 2,
       color: '#f5f5f5',
       url: 'reporte-detalle'
     });
@@ -43,8 +43,8 @@ export class ReporteDetalleComponent implements OnInit {
     let cifrasAPM = new ButtonMenu({
       icon: 'cifras-apm',
       secondaryColor: 'linear-gradient(#46a8b9, #96cfd9)',
-      description: 'Patrones que se<br> afectarán a la prima<br> media del mes actual',
-      id: 3,
+      desOpcionMenu: 'Patrones que se<br> afectarán a la prima<br> media del mes actual',
+      idOpcionMenu: 3,
       color: '#f5f5f5',
       url: 'patrones-prima-media-actual'
     });

@@ -1,10 +1,10 @@
 export class ButtonMenu {
-    id: number;
+    idOpcionMenu: number;
     icon: string;
     url: string;
-    description: string;
-    color: string;
-    secondaryColor: string;
+    desOpcionMenu: string;
+    color?: string;
+    secondaryColor?: string;
 
     constructor(init?:Partial<ButtonMenu>) {
         Object.assign(this, init);

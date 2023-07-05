@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserLoginModel } from '../model/userLogin.model';
 import { API } from '../config/endpoints';
+import { ButtonMenu } from '../button-menu';
 
 
 @Injectable({ providedIn: 'root' })
@@ -104,6 +105,7 @@ export class AccountService {
 
   private getUserByToken(data: any): UserLoginModel {
     try {
+      console.log(data.access_token.split('.')[1])
       let tokenDecrypt = JSON.parse(this.b64DecodeUnicode(data.access_token.split('.')[1]));
       let refreshTokenDecrypt = JSON.parse(this.b64DecodeUnicode(data.refresh_token!.split('.')[1]));
       let user: UserLoginModel = {
@@ -111,6 +113,7 @@ export class AccountService {
         correo: tokenDecrypt.correo,
         username: tokenDecrypt.user_name,
         cveUsuario: tokenDecrypt.cveUsuario,
+        menu: tokenDecrypt.menu,
 
         nombre: tokenDecrypt.nombre,
         apellidoPaterno: tokenDecrypt.apellidoPaterno,
@@ -132,6 +135,7 @@ export class AccountService {
       };
       return user;
     } catch (error) {
+      console.log(error);
       return null;
     }
   }
@@ -181,6 +185,13 @@ export class AccountService {
   getSubdelegacion(): string {
     if (this.userSubject != null && this.userSubject.value != null) {
       return this.userSubject.value.subdelegacion;
+    }
+    return null;
+  }
+
+  getMenu(): ButtonMenu[] {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      return this.userSubject.value.menu;
     }
     return null;
   }

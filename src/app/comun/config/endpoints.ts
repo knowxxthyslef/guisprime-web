@@ -8,6 +8,7 @@ export const API = {
     mock: environment.apiSprimeCatalogos + '/v1/catalogos/mock/'
   },
   usuarios: {
-    updatePassword: environment.apiSprimeLogin + '/v1/usuario/updateUsuarioPassword'
+    updatePassword: environment.apiSprimeLogin + '/v1/usuario/updateUsuarioPassword',
+    curp: environment.apiSprimeLogin + '/v1/usuario/usuario/OERG820910HMCBBB00',
   }
 };
