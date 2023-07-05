@@ -3,9 +3,9 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor, HttpResponse
+  HttpInterceptor, HttpResponse, HttpErrorResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -33,7 +33,7 @@ export class HttpRequestInterceptor implements HttpInterceptor {
       return next.handle(request)
       .pipe(catchError((err) => {
           this._spinner.hide();
-          return err;
+          return throwError(() => err); 
         }))
       .pipe(map<any, any>((evt: HttpEvent<any>) => {
           if (evt instanceof HttpResponse) {

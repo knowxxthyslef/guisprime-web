@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
 import { HttpParams } from '@angular/common/http';
 import { AccountService } from 'src/app/comun/services/account.service';
+import { AdministrationService } from 'src/app/comun/services/administration.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
 
   constructor(
     private accountService: AccountService,
+    private administrationService: AdministrationService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute
   ) {
@@ -60,39 +62,60 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
   doLogin(){
 
     if(!this.validCurp){
-      this.form.controls['curp'].disable();
-      this.validCurp = true;
-      this.form.controls['password'].setValidators([Validators.required, Validators.pattern(this.passwordPattern)]);
-      for (const key in this.form.controls) {
-        this.form.get(key).updateValueAndValidity();
-      }
-      return;
-    }
-    this._spinner.show();
 
-    const body = new HttpParams()
-    .set('username', this.form.controls.curp.value)
-    .set('password', this.form.controls.password.value)
-    .set('grant_type', 'password');
-    this.accountService.login(body).then(response => {
-      this._spinner.hide();
-      let isAdmin: boolean = false;
-      if(isAdmin){
-        this._router.navigate(['administracion']);
-      }else{
-        this._router.navigate(['home']);
-      }
-    }).catch((err) => {
-      this._spinner.hide();
-      if(err.status === 400){
-        this.form.get('password')?.setErrors({ credentials: true });
-        /* this._alertsServices.error('Credenciales invalidas'); */
-      }
-      else{
-        this._alertsServices.error('El servidor presenta problemas en este momento. Lamentamos el inconveniente.');
-      }
-      
-    });
+      this._spinner.show();
+      let curp = this.form.get('curp').value;
+      this.administrationService.getCurpValid(curp).then(resp => {
+        
+        /* this.form.controls['curp'].disable();
+        this.validCurp = true;
+        this.form.controls['password'].setValidators([Validators.required, Validators.pattern(this.passwordPattern)]);
+        for (const key in this.form.controls) {
+          this.form.get(key).updateValueAndValidity();
+        }
+        return; */
+      }).catch((error) => {
+        if(error.status == 302){
+          this.form.controls['curp'].disable();
+          this.validCurp = true;
+          this.form.controls['password'].setValidators([Validators.required, Validators.pattern(this.passwordPattern)]);
+          for (const key in this.form.controls) {
+            this.form.get(key).updateValueAndValidity();
+          }
+        }else{
+          this._alertsServices.error('El curp no se encuentra registrado en la base de datos');
+        }
+      });
+
+    }else{
+
+      this._spinner.show();
+      const body = new HttpParams()
+      .set('username', this.form.controls.curp.value)
+      .set('password', this.form.controls.password.value)
+      .set('grant_type', 'password');
+      this.accountService.login(body).then(response => {
+        this._spinner.hide();
+        let isAdmin: boolean = false;
+        if(isAdmin){
+          this._router.navigate(['administracion']);
+        }else{
+          this._router.navigate(['home']);
+        }
+      }).catch((err) => {
+        this._spinner.hide();
+        if(err.status === 400){
+          this.form.get('password')?.setErrors({ credentials: true });
+          /* this._alertsServices.error('Credenciales invalidas'); */
+        }
+        else{
+          this._alertsServices.error('El servidor presenta problemas en este momento. Lamentamos el inconveniente.');
+        }
+        
+      });
+
+    }
+    
     
   }
 

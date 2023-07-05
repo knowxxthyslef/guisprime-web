@@ -12,6 +12,16 @@ export class AdministrationService {
     ) {
     }
 
+    getCurpValid(curp:string){
+        return  this.http.get<any>(`${API.usuarios.curp}/${curp}`)
+        .toPromise()
+        .then(data => { return data });
+    }
+
+    getCurpValidSubscribe(curp:string){
+        return  this.http.get<any>(`${API.usuarios.curp}/${curp}`)
+    }
+
     /* public getJSON(request: PageRequest<Cliente>) {
         return this.http.get("./assets/json/car.json")
         .pipe(map((response: any) => response)).toPromise();

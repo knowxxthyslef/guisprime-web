@@ -9,6 +9,6 @@ export const API = {
   },
   usuarios: {
     updatePassword: environment.apiSprimeLogin + '/v1/usuario/updateUsuarioPassword',
-    curp: environment.apiSprimeLogin + '/v1/usuario/usuario/OERG820910HMCBBB00',
+    curp: environment.apiSprimeLogin + '/v1/usuario/usuario',
   }
 };
