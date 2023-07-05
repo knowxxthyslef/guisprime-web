@@ -83,7 +83,7 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
             this.form.get(key).updateValueAndValidity();
           }
         }else{
-          this._alertsServices.error('El curp no se encuentra registrado en la base de datos');
+          this.form.get('curp')?.setErrors({ credentials: true });
         }
       });
 

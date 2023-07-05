@@ -33,6 +33,9 @@
                                             <div *ngIf="form.controls['curp'].errors.pattern">
                                                 *CURP inválido
                                             </div>
+                                            <div *ngIf="form.controls['curp'].errors.credentials">
+                                                Los datos ingresados son incorrectos. Por favor, inténtalo de nuevo
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group"  [style.marginTop.px]="10" *ngIf="validCurp">
