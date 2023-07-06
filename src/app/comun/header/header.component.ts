@@ -28,17 +28,17 @@ export class HeaderComponent implements OnInit {
     this.nombre = this.accountService.getNombre();
     this.apellidoPaterno = this.accountService.getApellidoPaterno();
     this.apellidoMaterno = this.accountService.getApellidoMaterno();
-    this.perfil = this.accountService.getPerfil();
+    this.perfil = this.accountService.getRol();
     this.delegacion = this.accountService.getDelegacion();
     this.subdelegacion = this.accountService.getSubdelegacion();
 
-    this.curp = 'HELB931104HMCRZR00';
+    /* this.curp = 'HELB931104HMCRZR00';
     this.nombre = 'Juan CARLOS';
     this.apellidoPaterno = 'Salinas';
     this.apellidoMaterno = '';
     this.perfil = ROLE.NIVELCENTRAL;
     this.delegacion = 'Delegación';
-    this.subdelegacion = 'SUBDELEGACIÓN';
+    this.subdelegacion = 'SUBDELEGACIÓN'; */
 
     //Start watching for user inactivity.
     this.userIdle.startWatching();
