@@ -66,25 +66,22 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
       this._spinner.show();
       let curp = this.form.get('curp').value;
       this.administrationService.getCurpValid(curp).then(resp => {
-        
-        /* this.form.controls['curp'].disable();
-        this.validCurp = true;
-        this.form.controls['password'].setValidators([Validators.required, Validators.pattern(this.passwordPattern)]);
-        for (const key in this.form.controls) {
-          this.form.get(key).updateValueAndValidity();
-        }
-        return; */
-      }).catch((error) => {
-        if(error.status == 302){
+
+        console.log(resp);
+        if(resp.indCapturaPassword == 0){
           this.form.controls['curp'].disable();
           this.validCurp = true;
           this.form.controls['password'].setValidators([Validators.required, Validators.pattern(this.passwordPattern)]);
           for (const key in this.form.controls) {
             this.form.get(key).updateValueAndValidity();
           }
+          return;
         }else{
-          this.form.get('curp')?.setErrors({ credentials: true });
+          this._router.navigate(['/', 'login', { outlets: { 'base': ['resetPassword'] } }]);
         }
+        
+      }).catch((error) => {
+          this.form.get('curp')?.setErrors({ credentials: true });
       });
 
     }else{
