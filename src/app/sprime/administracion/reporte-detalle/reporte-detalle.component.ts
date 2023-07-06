@@ -37,7 +37,7 @@ export class ReporteDetalleComponent implements OnInit {
       desOpcionMenu: 'Patrones vigentes<br> con menos de 6 meses',
       idOpcionMenu: 2,
       color: '#f5f5f5',
-      url: 'reporte-detalle'
+      url: 'patrones-vigentes-seis-meses'
     });
 
     let cifrasAPM = new ButtonMenu({

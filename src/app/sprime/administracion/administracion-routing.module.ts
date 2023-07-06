@@ -10,6 +10,7 @@ import { CifrasPatronesComponent } from './cifras-patrones/cifras-patrones.compo
 import { GenerarArchivosComponent } from './generar-archivos/generar-archivos.component';
 import { PatronesVigentesSinTrabajadoresComponent } from './patrones-vigentes-sin-trabajadores/patrones-vigentes-sin-trabajadores.component';
 import { PatronesPrimaMediaActualComponent } from './patrones-prima-media-actual/patrones-prima-media-actual.component';
+import { PatronesVigentesSeisMesesComponent } from './patrones-vigentes-seis-meses/patrones-vigentes-seis-meses.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,18 @@ const routes: Routes = [
   {
     path: 'patrones-vigentes-sin-trabajadores',
     component: PatronesVigentesSinTrabajadoresComponent,
+    /* canActivate: [RolAuthorizacionGuard], */
+    data: {
+      allowedRoles: [
+        ROLE.NIVELCENTRAL,
+        ROLE.DELEGACIONAL,
+        ROLE.SUBDELEGACIONAL
+      ]
+    }
+  },
+  {
+    path: 'patrones-vigentes-seis-meses',
+    component: PatronesVigentesSeisMesesComponent,
     /* canActivate: [RolAuthorizacionGuard], */
     data: {
       allowedRoles: [

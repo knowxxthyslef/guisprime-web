@@ -20,6 +20,7 @@ import { PagerModule } from 'src/app/comun/pager';
 import { PatronesVigentesSinTrabajadoresComponent } from './patrones-vigentes-sin-trabajadores/patrones-vigentes-sin-trabajadores.component';
 import { PatronesPrimaMediaActualComponent } from './patrones-prima-media-actual/patrones-prima-media-actual.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PatronesVigentesSeisMesesComponent } from './patrones-vigentes-seis-meses/patrones-vigentes-seis-meses.component';
 
 
 
@@ -35,7 +36,8 @@ import { MatSelectModule } from '@angular/material/select';
     AutorizarApmComponent,
     GenerarArchivosComponent,
     PatronesVigentesSinTrabajadoresComponent,
-    PatronesPrimaMediaActualComponent
+    PatronesPrimaMediaActualComponent,
+    PatronesVigentesSeisMesesComponent
   ],
   imports: [
     CommonModule,
