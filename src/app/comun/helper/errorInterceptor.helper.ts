@@ -23,7 +23,7 @@ export class ErrorInterceptorHelper implements HttpInterceptor {
                 this.accountService.logout();
             } else if(err.error && (err.name === 'HttpErrorResponse')){
                 this._alertsServices.error(err.error.mensaje);
-                return throwError(() => error);      
+                return null;      
             } 
             else{
                 return next.handle(request);
