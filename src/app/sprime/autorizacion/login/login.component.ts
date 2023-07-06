@@ -93,7 +93,7 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
       .set('grant_type', 'password');
       this.accountService.login(body).then(response => {
         this._spinner.hide();
-        let isAdmin: boolean = false;
+        let isAdmin: boolean = this.accountService.getRol() === 'ADMINISTRADOR';
         if(isAdmin){
           this._router.navigate(['administracion']);
         }else{
