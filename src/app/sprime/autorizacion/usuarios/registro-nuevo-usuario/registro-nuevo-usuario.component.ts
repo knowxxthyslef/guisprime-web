@@ -11,7 +11,7 @@ import { GeneralComponent } from 'src/app/comun/general-component/general.compon
 export class RegistroNuevoUsuarioComponent extends GeneralComponent implements OnInit {
 
   public form!: FormGroup;
-  public homeUsuario = NAV.registroUsuario;
+  public homeUsuario = NAV.administracion;
   public btnRenapo = {
     buttonIcon: false,
     buttonClass: 'btn-renapo',

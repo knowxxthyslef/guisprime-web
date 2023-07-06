@@ -119,7 +119,7 @@ export class AccountService {
         apellidoPaterno: tokenDecrypt.apellidoPaterno,
         apellidoMaterno: tokenDecrypt.apellidoMaterno,
         delegacion: tokenDecrypt.delegacion,
-        subdelegacion: tokenDecrypt.subdelegacion,
+        subdelegacion: tokenDecrypt.subDelegacion,
         perfil: tokenDecrypt.perfil,
 
         authorities: tokenDecrypt.authorities,
@@ -142,7 +142,7 @@ export class AccountService {
 
   getCurp(): string {
     if (this.userSubject != null && this.userSubject.value != null) {
-      return this.userSubject.value.curp;
+      return this.userSubject.value.cveUsuario;
     }
     return null;
   }
@@ -194,6 +194,20 @@ export class AccountService {
       return this.userSubject.value.menu;
     }
     return null;
+  }
+
+  getRol(): string {
+    if (this.userSubject != null && this.userSubject.value != null) {
+      
+      let rol: string[] = this.userSubject.value.authorities;
+      if (!rol) {
+        return null;
+      }else{
+        return this.userSubject.value.authorities[0];
+      }
+    }
+    return null;
+    
   }
 
 

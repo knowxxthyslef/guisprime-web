@@ -1,7 +1,7 @@
 <div class="main-title">
     <div fxLayout="row" fxLayoutAlign="space-between center" [style.marginLeft.px]="30" [style.marginRight.px]="30" style="min-height: 60px;">
         <div fxFlex="70" fxFlex.xs="100" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="30px">
-            <div *ngIf="salir">
+            <div *ngIf="title?.salir">
                 <div style="border: 2px solid #565f76; border-radius: 8px; width: 35px!important; height: 35px!important; overflow: hidden!important; cursor: pointer;" (click)="salir()">
                     <div class="arrow-back"></div>
                 </div>

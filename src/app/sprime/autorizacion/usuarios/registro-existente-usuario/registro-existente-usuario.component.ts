@@ -15,7 +15,7 @@ export class RegistroExistenteUsuarioComponent extends GeneralComponent  impleme
 
   public btnBaja = {
     buttonIcon: true,
-    buttonUrl: 'atomo_icono_usuario.svg',
+    buttonIconImg: 'Iconbaja',
     buttonClass: 'btn-administrador',
     buttonText: 'Baja usuario',
     buttonAling: 'start center',
@@ -23,7 +23,7 @@ export class RegistroExistenteUsuarioComponent extends GeneralComponent  impleme
   }
   public btnPassword = {
     buttonIcon: true,
-    buttonUrl: 'atomo_icono_contraseña.svg',
+    buttonIconImg: 'Iconpassword',
     buttonClass: 'btn-administrador',
     buttonText: 'Actualizar contraseña',
     buttonAling: 'start center',
@@ -31,7 +31,7 @@ export class RegistroExistenteUsuarioComponent extends GeneralComponent  impleme
   }
   public btnPerfil = {
     buttonIcon: true,
-    buttonUrl: 'atomo_icono_perfil.svg',
+    buttonIconImg: 'Iconperfil',
     buttonClass: 'btn-administrador',
     buttonText: 'Cambio de perfil',
     buttonAling: 'start center',
