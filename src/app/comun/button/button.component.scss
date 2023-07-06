@@ -13,6 +13,34 @@
     background-color: #fff;
     border-radius: 6px;
 	cursor: pointer;
+
+    .Iconbaja {
+        width: 100%!important;
+        background-image: url("../../../assets/img/atomo_icono_usuario.svg");
+        height: 20px!important;
+        background-repeat: no-repeat;
+        background-position: center; 
+        position: relative;
+    }
+
+    .Iconpassword {
+        width: 100%!important;
+        background: url("../../../assets/img/atomo_icono_contraseña.svg");
+        height: 20px!important;
+        background-repeat: no-repeat;
+        background-position: center; 
+        position: relative;
+    }
+
+    .Iconperfil {
+        width: 100%!important;
+        background-image: url("../../../assets/img/atomo_icono_perfil.svg");
+        height: 20px!important;
+        background-repeat: no-repeat;
+        background-position: center; 
+        position: relative;
+    }
+
 }
 
 .btn-administrador:hover {
@@ -21,6 +49,34 @@
     font-weight: 500;
     background-color: #565f76;
     color: #fff;
+
+    
+    .Iconbaja {
+        width: 100%!important;
+        background-image: url("../../../assets/img/atomo_icono_usuario_active.svg");
+        height: 20px!important;
+        background-repeat: no-repeat;
+        background-position: center; 
+        position: relative;
+    }
+
+    .Iconpassword {
+        width: 100%!important;
+        background-image: url("../../../assets/img/atomo_icono_contraseña_active.svg");
+        height: 20px!important;
+        background-repeat: no-repeat;
+        background-position: center; 
+        position: relative;
+    }
+
+    .Iconperfil {
+        width: 100%!important;
+        background-image: url("../../../assets/img//atomo_icono_perfil_active.svg");
+        height: 20px!important;
+        background-repeat: no-repeat;
+        background-position: center; 
+        position: relative;
+    }
 }
 
 .btn-default {
@@ -31,7 +87,6 @@
     border-radius: 8px !important;
     font-size: 1.5rem;
     color: #ffffff;
-    width: 100%;
 }
 
 .btn-guardar {
@@ -74,16 +129,7 @@
     color: #ffffff !important;
 }
 
-.btn-renapo:active,
-.btn-renapo:focus,
-.btn-renapo:focus:active {
-    color: #ffffff !important;
-    outline-color: #8ac7d3!important;
-    box-shadow: none!important;
-}
-
 .btn-sprime-cancelar {
-    /* background-color: #8ac7d3; */
     background-color: #565f76;
     border: 1px solid #565f76;
     border-radius: 8px !important;

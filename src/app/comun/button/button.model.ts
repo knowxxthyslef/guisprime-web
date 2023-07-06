@@ -1,6 +1,6 @@
 export class Button {
     buttonIcon?: boolean;
-    buttonUrl?: string;
+    buttonIconImg?: string;
     buttonClass?: string;
     buttonText?: string;
     buttonAling?: string;
