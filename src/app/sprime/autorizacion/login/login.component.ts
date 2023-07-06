@@ -5,6 +5,7 @@ import { GeneralComponent } from 'src/app/comun/general-component/general.compon
 import { HttpParams } from '@angular/common/http';
 import { AccountService } from 'src/app/comun/services/account.service';
 import { AdministrationService } from 'src/app/comun/services/administration.service';
+import { LoginDataService } from '../services/login-data.service';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,15 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
   form!: FormGroup;
   public ver: boolean = false;
   public validCurp: boolean = false;
+  
   passwordPattern = new RegExp("^(?=.*[^A-Za-z0-9]{1}.*)(?=.*[0-9]{1}.*[0-9]{1}.*[0-9]{1}.*)(?=.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*[A-Za-z]{1}.*).*$");
 
   constructor(
     private accountService: AccountService,
     private administrationService: AdministrationService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private loginDataService :LoginDataService
   ) {
     super();
   }
@@ -33,6 +36,7 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
 
   ngOnInit(): void {
     this.accountService.logout();
+   
     
     this.form = this.formBuilder.group({
       curp:['', [Validators.required, 
@@ -77,6 +81,7 @@ export class LoginComponent extends GeneralComponent implements OnInit, AfterVie
           }
           return;
         }else{
+          this.loginDataService.setLoginCurp(curp);
           this._router.navigate(['/', 'login', { outlets: { 'base': ['resetPassword'] } }]);
         }
         

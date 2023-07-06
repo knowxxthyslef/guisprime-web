@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { GeneralComponent } from 'src/app/comun/general-component/general.component';
 import { ResetPasswordService } from '../services/reset-password.service';
+import { LoginDataService } from '../services/login-data.service';
 
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
 })
-export class ResetPasswordComponent extends GeneralComponent implements OnInit {
+export class ResetPasswordComponent extends GeneralComponent implements OnInit,OnDestroy {
 
 
   public viewConfirm1: boolean = false;
@@ -23,6 +24,7 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private loginDataService :LoginDataService,
     private resetPasswordService : ResetPasswordService
   ) {
     super();
@@ -30,16 +32,16 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
 
   ngOnInit(): void {
    
+    let curp = this.loginDataService.getLoginCurp();
+
+    if(!curp)
+      this._router.navigate(['/', 'login', { outlets: { 'base': [] } } ,]);
 
     this.formPasswordReset = this.formBuilder.group({
-      curp:['', [Validators.required, 
-        Validators.maxLength(18), 
-        Validators.pattern(this.curpPattern)]],
-      oldPassword: ['', [Validators.required, Validators.maxLength(10)]],
+      curp:['', [Validators.required]],
       newPassword: ['', [Validators.required
         , Validators.maxLength(10)
         ,Validators.pattern(this.passwordPattern)
-      ,this.shouldBeNew() 
     ]],
       passwordConfirm: ['', [Validators.required
         , Validators.maxLength(10)
@@ -47,13 +49,16 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
       ,this.shouldMatchNewPassword()]]
     });
 
-    
+    this.formPasswordReset.get('curp').setValue(curp);
+    this.formPasswordReset.get('curp').disable();
    
   }
 
-  validateForm(){
+  override ngOnDestroy(){
+    this.loginDataService.deleteLoginCurp();
+  }
 
-    this.formPasswordReset.get('oldPassword').updateValueAndValidity();
+  validateForm(){
     this.formPasswordReset.get('newPassword').updateValueAndValidity();
     this.formPasswordReset.get('passwordConfirm').updateValueAndValidity();
   }
@@ -64,7 +69,7 @@ export class ResetPasswordComponent extends GeneralComponent implements OnInit {
     let password = this.formPasswordReset.get('passwordConfirm').value;
 
     this.resetPasswordService.updatePassword(curp, password).then(resp => {
-      this._router.navigate(['login',{message: resp.mensaje }]);
+      this._router.navigate(['/', 'login', {message: resp.mensaje }, { outlets: { 'base': [] } } ,]);
     });
   }
 

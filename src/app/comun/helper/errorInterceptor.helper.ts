@@ -1,7 +1,5 @@
-import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AccountService } from '../services/account.service';
@@ -17,7 +15,6 @@ export class ErrorInterceptorHelper implements HttpInterceptor {
     ];
     
     constructor(
-        private router: Router,
         private accountService: AccountService,
         private _alertsServices: AlertService
     ){}
